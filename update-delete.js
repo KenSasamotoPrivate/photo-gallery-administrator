@@ -14,6 +14,7 @@ $(function(){//status change
         $.post('update.php', {
           id: id,
         },function(response){
+          console.log(response);
           if(response.status === 'public'){
             //$thisを使うと responseが対象となる
             $('ul[data-id=' + id + ']').find('li.status, li.status-link a').removeClass('private');

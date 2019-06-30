@@ -1,10 +1,14 @@
 <?php
-require_once('WorksDataSource.php');
-require_once('functions.php');
-$WorksDataSource = new WorksDataSource();
-$work = $WorksDataSource->editProcess();
-$titleError = $WorksDataSource->getErrors('titleError');
+require_once('Controller.php');
+require_once('controller/EditController.php');
+$EditController = new EditController();
+$work = $EditController->editProcess();
+// var_dump($work);
+// exit;
+$titleError = $EditController->getErrors('titleError');
 $titleError === '' ? $titleValue = $work['title'] : $titleValue = '';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
