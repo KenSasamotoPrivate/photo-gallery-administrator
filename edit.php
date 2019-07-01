@@ -1,5 +1,4 @@
 <?php
-require_once('Controller.php');
 require_once('controller/EditController.php');
 $EditController = new EditController();
 $work = $EditController->editProcess();
