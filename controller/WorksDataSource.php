@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/Controller.php');
+require_once(__DIR__.'/../Controller.php');
 require_once('config.php');
 class WorksDataSource extends Controller {
 
@@ -60,6 +60,9 @@ class WorksDataSource extends Controller {
 
     //called by update.php
     public function stateUpdate() {
+
+        echo "state update function";
+        exit;
 
         $this->pdo->beginTransaction();
         
