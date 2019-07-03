@@ -3,7 +3,7 @@ require_once(__DIR__.'/../Controller.php');
 require_once('config.php');
 class WorksDataSource extends Controller {
 
-    public function run() {
+    public function run() {       
 
         //adminでPOSTリクエストしたとき（リクエスト先はadmin自身）
         if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -58,51 +58,6 @@ class WorksDataSource extends Controller {
         header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
     }
 
-    //called by update.php
-    public function stateUpdate() {
-
-        echo "state update function";
-        exit;
-
-        $this->pdo->beginTransaction();
-        
-        // check status
-        //$status =  $this->getStatus()
-        $sql ="SELECT status FROM media WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt -> bindValue(":id", $_POST['id'], PDO::PARAM_INT);
-        $stmt -> execute();
-        $status =  $stmt->fetchColumn();
-
-        /* update */
-        if($status === 'public') {
-            $sql = "UPDATE media SET status = 'private' WHERE id = :id";
-            //$sql = sprintf("UPDATE media SET status = 'private' WHERE id = %d", $_POST['id']);
-        }
-        if($status === 'private'){
-            $sql = "UPDATE media SET status = 'public' WHERE id = :id";
-            //$sql = sprintf("UPDATE media SET status = 'public' WHERE id = %d", $_POST['id']);
-        }
-        $stmt = $this->pdo->prepare($sql);
-        $stmt -> bindValue(":id", $_POST['id'], PDO::PARAM_INT);
-        $stmt -> execute();
-        
-        // return status
-        $sql = "SELECT status FROM media WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt -> bindValue(":id", $_POST['id'], PDO::PARAM_INT);
-        $stmt -> execute();
-        $status = $stmt -> fetchColumn();
-
-        $this->pdo->commit();
-
-        return ['status' => $status];
-        
-    }
-    /*
-    private function getStatus(){
-    }
-    */
 
     public function delete() {
         $sql = "DELETE FROM media WHERE id = :id";

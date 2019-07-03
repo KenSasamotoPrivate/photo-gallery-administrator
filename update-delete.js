@@ -11,8 +11,9 @@ $(function(){//status change
   
       if(confirm($confirmMessage)){
         //ajax
-        $.post('update.php', {
+        $.post('admin.php', {
           id: id,
+          mode: 'change-status'
         },function(response){
           console.log(response);
           if(response.status === 'public'){
