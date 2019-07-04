@@ -2,7 +2,7 @@
 require_once('FileModel.php');
 
 class State extends FileModel {
-    //called by JS
+
     public function stateUpdate() {
 
 

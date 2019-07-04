@@ -58,13 +58,6 @@ class WorksDataSource extends Controller {
         header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
     }
 
-
-    public function delete() {
-        $sql = "DELETE FROM media WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(":id", $_POST['id'], PDO::PARAM_INT);
-        $stmt->execute();
-    }
 /*
     private function isLoggedIn(){
         return isset($_SESSION['me']) && !empty($_SESSION['me']);

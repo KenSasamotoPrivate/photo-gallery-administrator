@@ -1,17 +1,23 @@
 <?php
 require_once('controller/WorksDataSource.php');
 require_once('model/State.php');
+require_once('model/DeleteWorks.php');
 
 $WorksDataSource = new WorksDataSource();
 
-//if POST switch mode
 if($_POST['mode'] === 'change-status'){
-  
   $State = new State();
+
   $status =  $State->stateUpdate();
     
   header('content-Type: application/json');
   echo json_encode($status);
+  exit;
+}
+
+if($_POST['mode'] === 'delete'){
+  $DeleteWorks = new DeleteWorks();
+  $DeleteWorks->delete();
   exit;
 }
 
