@@ -1,7 +1,7 @@
 <?php
-require_once('FileModel.php');
+require_once('WorksModel.php');
 
-class PostWorks extends FileModel {
+class PostWorks extends WorksModel {
 
     public function postProcess(){
         try {

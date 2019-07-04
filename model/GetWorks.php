@@ -1,16 +1,15 @@
 <?php
-require_once(__DIR__.'/../Controller.php');
+require_once('WorksModel.php');
 
-class WorksDataSource extends Controller {
-    
+class GetWorks extends WorksModel {
+
     public function findAll(){
         $sql = "SELECT * FROM media ORDER BY id desc;";
         $stmt = $this->pdo->prepare($sql);
-        $stmt -> execute();
-        //$records = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute();
+
         return $stmt -> fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
-
 ?>

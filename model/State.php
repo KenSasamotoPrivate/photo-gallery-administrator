@@ -1,7 +1,7 @@
 <?php
-// require_once('FileModel.php');
+// require_once('WorksModel.php');
 
-class State extends FileModel {
+class State extends WorksModel {
 
     public function stateUpdate() {
 

@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-class Controller {
+class WorksModel {
     
     protected $_errors;
     protected $_values;

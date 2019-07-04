@@ -1,7 +1,7 @@
 <?php
-// require_once('FileModel.php');
+// require_once('WorksModel.php');
 
-class DeleteWorks extends FileModel {
+class DeleteWorks extends WorksModel {
 
     public function delete() {
         $sql = "DELETE FROM media WHERE id = :id";

@@ -1,8 +1,9 @@
 <?php
-require_once('controller/WorksDataSource.php');
 require_once('model/PostWorks.php');
 require_once('model/State.php');
 require_once('model/DeleteWorks.php');
+
+require_once('model/GetWorks.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
   
@@ -26,11 +27,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   $PostWorks->postProcess();
 
 }
-$WorksDataSource = new WorksDataSource();
 
-$records = $WorksDataSource->findAll();
-$fileError = $WorksDataSource->getErrors(fileError);
-$titleError = $WorksDataSource->getErrors(titleError);
+$GetWorks = new GetWorks();
+$records = $GetWorks->findAll();
+
+$fileError = $GetWorks->getErrors(fileError);
+$titleError = $GetWorks->getErrors(titleError);
 
 
 ?>
@@ -49,7 +51,7 @@ $titleError = $WorksDataSource->getErrors(titleError);
   <form action="logout.php" method="post" id="logout-form">    
     <button type="submit" class="logout-btn">
       <span>ログアウト</span>
-      <a class="site-link" href="http://hiiragi-ya.net/" target="_blank">サイトを見る</a>
+      <a class="site-link" href="https://hiiragi-ya.net/" target="_blank">サイトを見る</a>
     </button>    
     <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
   </form>
@@ -64,7 +66,7 @@ $titleError = $WorksDataSource->getErrors(titleError);
       
       <div class="input-label-wrap">
         <label for="title">作品名</label>
-        <input id="title" type="text" name="title" value="<?php echo h($WorksDataSource->getValues(titleValue));?>">
+        <input id="title" type="text" name="title" value="<?php echo h($GetWorks->getValues(titleValue));?>">
         <p class="<?php $titleError !== '' ? print 'error' : print ''?>"><?php echo h($titleError);?></p>
       </div>
       
