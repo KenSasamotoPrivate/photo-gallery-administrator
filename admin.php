@@ -1,27 +1,34 @@
 <?php
 require_once('controller/WorksDataSource.php');
+require_once('model/PostWorks.php');
 require_once('model/State.php');
 require_once('model/DeleteWorks.php');
 
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  
+  if($_POST['mode'] === 'change-status'){
+    $State = new State();
+  
+    $status =  $State->stateUpdate();
+      
+    header('content-Type: application/json');
+    echo json_encode($status);
+    exit;
+  }
+  
+  if($_POST['mode'] === 'delete'){
+    $DeleteWorks = new DeleteWorks();
+    $DeleteWorks->delete();
+    exit;
+  }
+
+  $PostWorks = new PostWorks();
+  $PostWorks->postProcess();
+
+}
 $WorksDataSource = new WorksDataSource();
 
-if($_POST['mode'] === 'change-status'){
-  $State = new State();
-
-  $status =  $State->stateUpdate();
-    
-  header('content-Type: application/json');
-  echo json_encode($status);
-  exit;
-}
-
-if($_POST['mode'] === 'delete'){
-  $DeleteWorks = new DeleteWorks();
-  $DeleteWorks->delete();
-  exit;
-}
-
-$records = $WorksDataSource->run();
+$records = $WorksDataSource->findAll();
 $fileError = $WorksDataSource->getErrors(fileError);
 $titleError = $WorksDataSource->getErrors(titleError);
 
