@@ -1,4 +1,5 @@
 <?php
+require_once('model/WorksModel.php');
 require_once('controller/EditController.php');
 $EditController = new EditController();
 $work = $EditController->editProcess();

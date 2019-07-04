@@ -1,8 +1,6 @@
 <?php
-// require_once(__DIR__.'/../Controller.php');
-require_once('Controller.php');
 require_once('config.php');
-class EditController extends Controller {
+class EditController extends WorksModel {
 
     public function editProcess(){
 
