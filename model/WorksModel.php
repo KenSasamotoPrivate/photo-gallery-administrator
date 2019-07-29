@@ -50,7 +50,6 @@ class WorksModel {
     }
 
     protected function validate() {
-
         if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
             echo "token error!";
             exit;

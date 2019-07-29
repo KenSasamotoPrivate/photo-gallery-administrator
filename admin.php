@@ -6,33 +6,41 @@ require_once('model/DeleteWorks.php');
 require_once('model/GetWorks.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-  
-  if($_POST['mode'] === 'change-status'){
-    $State = new State();
-  
-    $status =  $State->stateUpdate();
-      
-    header('content-Type: application/json');
-    echo json_encode($status);
-    exit;
-  }
-  
-  if($_POST['mode'] === 'delete'){
-    $DeleteWorks = new DeleteWorks();
-    $DeleteWorks->delete();
-    exit;
-  }
 
+  $mode = $_POST['mode'];
+
+  switch($mode){
+
+    case 'change-status':
+      $State = new State();
+
+      $status =  $State->stateUpdate();
+
+      header('content-Type: application/json');
+      //return to update-delete.js line 14
+      echo json_encode($status);
+      exit;
+      //break;
+
+    case 'delete':
+
+      $DeleteWorks = new DeleteWorks();
+      $DeleteWorks->delete();
+      break;
+      exit;
+  }
+  
   $PostWorks = new PostWorks();
   $PostWorks->postProcess();
+  $fileError = $PostWorks->getErrors(fileError);
+  $titleError = $PostWorks->getErrors(titleError);
+  $titleValue = $PostWorks->getValues(titleValue);
 
 }
 
+
 $GetWorks = new GetWorks();
 $records = $GetWorks->findAll();
-
-$fileError = $GetWorks->getErrors(fileError);
-$titleError = $GetWorks->getErrors(titleError);
 
 
 ?>
@@ -66,7 +74,7 @@ $titleError = $GetWorks->getErrors(titleError);
       
       <div class="input-label-wrap">
         <label for="title">作品名</label>
-        <input id="title" type="text" name="title" value="<?php echo h($GetWorks->getValues(titleValue));?>">
+        <input id="title" type="text" name="title" value="<?php echo h($titleValue);?>">
         <p class="<?php $titleError !== '' ? print 'error' : print ''?>"><?php echo h($titleError);?></p>
       </div>
       
@@ -99,8 +107,14 @@ $titleError = $GetWorks->getErrors(titleError);
           <li>最終更新日</li>
           <li class="date"><?php echo h($record["updated_at"]);?></li>
           <li><b><?php echo h($record["title"]);?></b></li>
-          <li class="delete-edit-link"><span><a href="edit.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span></li>
-          <li class="status-link"><span><a class="statusLink <?php echo h($record["status"]); ?>" href=""></a></span></li>
+          <li class="delete-edit-link">
+            <!-- delete >> update-delete.js -->
+            <span><a href="edit.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span>
+          </li>
+          <li class="status-link">
+            <!-- 公開設定 >> update-delete.js -->
+            <span><a class="statusLink <?php echo h($record["status"]); ?>" href=""></a></span>
+          </li>
         </ul>
       </div>
     <?php endforeach ?>

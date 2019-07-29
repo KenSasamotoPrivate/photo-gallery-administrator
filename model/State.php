@@ -5,7 +5,6 @@ class State extends WorksModel {
 
     public function stateUpdate() {
 
-
         $this->pdo->beginTransaction();
         
         // check status

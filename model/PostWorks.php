@@ -4,9 +4,9 @@ require_once('WorksModel.php');
 class PostWorks extends WorksModel {
 
     public function postProcess(){
+
         try {
-            $this->validate();
-            
+            $this->validate();      
         } catch(PDOException $e){
             echo("<p>500 Inertnal Server Error</p>");
             exit($e->getMessage());
