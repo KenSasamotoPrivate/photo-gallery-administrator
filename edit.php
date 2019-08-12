@@ -1,11 +1,11 @@
 <?php
 require_once('model/WorksModel.php');
-require_once('controller/EditController.php');
-$EditController = new EditController();
-$work = $EditController->editProcess();
+require_once('model/EditWorks.php');
+$EditWorks = new EditWorks;
+$work = $EditWorks->editProcess();
 // var_dump($work);
 // exit;
-$titleError = $EditController->getErrors('titleError');
+$titleError = $EditWorks->getErrors('titleError');
 $titleError === '' ? $titleValue = $work['title'] : $titleValue = '';
 
 
