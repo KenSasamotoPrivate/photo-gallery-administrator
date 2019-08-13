@@ -12,18 +12,6 @@ class User {
         }
         
     }  
-    /* Sing Up 
-    public function create($values) {
-        $stmt = $this->db->prepare("INSERT INTO users(email, password, created, modified) VALUES(:email, :password, now(), now())");
-
-        $res = $stmt->execute([
-            ':email' => $values['email'],
-            ':password' => password_hash($values['password'], PASSWORD_DEFAULT)
-        ]);
-        if($res === false) {
-            throw new \MyApp\Exception\DuplicateEmail();
-        }
-    }*/
 
     /* login */
     public function login($values) {
@@ -49,19 +37,7 @@ class User {
         return $user;
 
     }
-
-    /*
-    public function findAll() {
-
-        $stmt = $this->db->query("SELECT * FROM users ORDER BY id DESC");
-
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
-        
-        return $stmt->fetchAll();
-
-    }
-    */
-
+    
 }
 
 ?>

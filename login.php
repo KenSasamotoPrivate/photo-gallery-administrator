@@ -1,12 +1,12 @@
 <?php
 
 //require_once('config.php');
-require_once('LoginController.php');
+require_once('model/Login.php');
 
-$loginController = new LoginController();
-$loginController->run();
-// $inputValue = $loginController->getValues();
-$error = $loginController->getErrors('login');
+$login = new Login();
+$login->run();
+// $inputValue = $login->getValues();
+$error = $login->getErrors('login');
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $error = $loginController->getErrors('login');
   <div id="container">
     <form action="" method="post" id="login">
       <p>
-        <input type="text" name="email" placeholder="email" value="<?php isset($loginController->getValues()->email) ? print h($loginController->getValues()->email) : print '' ?>">
+        <input type="text" name="email" placeholder="email" value="<?php isset($login->getValues()->email) ? print h($login->getValues()->email) : print '' ?>">
       </p>
       <p>
         <input type="password" name="password" placeholder="password">

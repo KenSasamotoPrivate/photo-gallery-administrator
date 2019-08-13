@@ -4,7 +4,7 @@
 require_once('config.php');
 require_once('User.php');
 
-class LoginController {
+class Login {
   
   private $_errors;
   private $_values;
