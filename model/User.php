@@ -10,7 +10,6 @@ class User {
             echo $e->getMessage();
             exit;
         }
-        
     }  
 
     /* login */

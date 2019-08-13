@@ -1,9 +1,13 @@
 <?php
-require_once('WorksModel.php');
+require_once('Model.php');
 
-class PostWorks extends WorksModel {
+class PostWorks extends Model {
 
     public function postProcess(){
+
+        // if($_SERVER['REQUEST_METHOD']==='POST'){
+
+        // }
 
         try {
             $this->validate();      

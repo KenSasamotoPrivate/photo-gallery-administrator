@@ -1,7 +1,7 @@
 <?php
-require_once('WorksModel.php');
+require_once('Model.php');
 
-class GetWorks extends WorksModel {
+class GetWorks extends Model {
 
     public function findAll(){
         $sql = "SELECT * FROM media ORDER BY id desc;";

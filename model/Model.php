@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-class WorksModel {
+class Model {
     
     protected $_errors;
     protected $_values;

@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-class EditWorks extends WorksModel {
+class EditWorks extends Model {
 
     public function editProcess(){
 

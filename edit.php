@@ -1,5 +1,5 @@
 <?php
-require_once('model/WorksModel.php');
+require_once('model/Model.php');
 require_once('model/EditWorks.php');
 $EditWorks = new EditWorks;
 $work = $EditWorks->editProcess();

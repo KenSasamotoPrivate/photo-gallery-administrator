@@ -38,7 +38,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
 
-
 $GetWorks = new GetWorks();
 $records = $GetWorks->findAll();
 
