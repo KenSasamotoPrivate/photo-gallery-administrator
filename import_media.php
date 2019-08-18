@@ -15,9 +15,6 @@
     );
     try {
         $pdo = new PDO(DSN, user, pass);
-        // $user = "points-and-lines";
-        // $pass = "sasamotoken1957";
-        // $pdo = new PDO("mysql:host=mysql719.db.sakura.ne.jp;dbname=points-and-lines_mediatest;charset=utf8", $user, $pass);
         $sql = "SELECT * FROM media WHERE id = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt -> bindValue(":id", $id, PDO::PARAM_INT);
