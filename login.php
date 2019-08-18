@@ -21,7 +21,7 @@ $error = $login->getErrors('login');
   <div id="container">
     <form action="" method="post" id="login">
       <p>
-        <input type="text" name="email" placeholder="email" value="<?php isset($login->getValues()->email) ? print h($login->getValues()->email) : print '' ?>">
+        <input type="text" name="email" placeholder="email" value="<?php isset($login->getValues(email)->email) ? print h($login->getValues(email)->email) : print '' ?>">
       </p>
       <p>
         <input type="password" name="password" placeholder="password">

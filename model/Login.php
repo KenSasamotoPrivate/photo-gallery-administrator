@@ -2,19 +2,22 @@
 
 //namespace MyApp\Controller;
 require_once('config.php');
+require_once('Model.php');
 require_once('User.php');
 
-class Login {
+class Login extends Model {
   
-  private $_errors;
-  private $_values;
+  // private $_errors;
+  // private $_values;
 
   public function __construct() {
+    
     if(!isset($_SESSION['token'])) {
       $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(16));
     }
-    $this->_errors = new \stdClass();
-    $this->_values = new \stdClass();
+    // $this->_errors = new \stdClass();
+    // $this->_values = new \stdClass();
+
   }
 
   public function run() {
@@ -23,7 +26,6 @@ class Login {
       header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
       exit;
     }
-
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $this->postProcess();
     }
@@ -39,7 +41,7 @@ class Login {
         return;
     } 
 
-    $this->setValues('email', $_POST['email']);
+    $this->setValues(email, $_POST['email']);
 
     if($this->hasErrors()){
       return;
@@ -82,7 +84,7 @@ class Login {
       throw new Exception();
     }
   }
-  
+  /*
   protected function setValues($key, $value) {
     $this->_values->$key = $value;
   }
@@ -107,5 +109,6 @@ class Login {
     //$userModel->login() ログイン結果が入っているか
     return isset($_SESSION['me']) && !empty($_SESSION['me']);
   }
+   */
 
 }

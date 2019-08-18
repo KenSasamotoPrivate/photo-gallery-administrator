@@ -5,10 +5,6 @@ class PostWorks extends Model {
 
     public function postProcess(){
 
-        // if($_SERVER['REQUEST_METHOD']==='POST'){
-
-        // }
-
         try {
             $this->validate();      
         } catch(PDOException $e){
