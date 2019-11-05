@@ -117,7 +117,8 @@ $records = $GetWorks->findAll();
       </div>
     <?php endforeach ?>
   </div>
-<script src="jquery-3.3.1.min.js"></script>
-<script src="update-delete.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/status_change.js"></script>
+<script src="/js/delete.js"></script>
 </body>
 </html>
