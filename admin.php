@@ -47,7 +47,7 @@ $records = $GetWorks->findAll();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="css/admin.css">
   <title>管理画面</title>
 </head>
 <body>
