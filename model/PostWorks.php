@@ -37,7 +37,7 @@ class PostWorks extends Model {
         $this->pdo->commit();
 
         //session_destroy();
-        header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'].'/IndexController.php');
     }
 }
 

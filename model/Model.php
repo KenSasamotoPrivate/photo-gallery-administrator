@@ -96,7 +96,7 @@ class Model {
             }
             else{
                 echo "非対応ファイルです．<br/>";
-                echo ("<a href=\"admin.php\">戻る</a><br/>");
+                echo ("<a href=\"IndexController.php\">戻る</a><br/>");
                 exit(1);
             }
       

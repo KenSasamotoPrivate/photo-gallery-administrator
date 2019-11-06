@@ -53,7 +53,7 @@ $titleError === '' ? $titleValue = $work['title'] : $titleValue = '';
     </div>
     <div class="btn-wrap">
       <button type="submit">上書きする</button>
-      <div><a href="admin.php">キャンセルして戻る</a></div>
+      <div><a href="IndexController.php">キャンセルして戻る</a></div>
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
       <input type="hidden" name="mode" value="edit">
     </div>

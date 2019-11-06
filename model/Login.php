@@ -23,7 +23,7 @@ class Login extends Model {
   public function run() {
     //ログイン中ならTOPにリダイレクト
     if ($this->isLoggedIn()) {
-      header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
+      header('Location: http://' . $_SERVER['HTTP_HOST'].'/IndexController.php');
       exit;
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -64,7 +64,7 @@ class Login extends Model {
       $_SESSION['me'] = $user;
 
       // redirect to Top
-      header('Location: http://' . $_SERVER['HTTP_HOST'].'/admin.php');
+      header('Location: http://' . $_SERVER['HTTP_HOST'].'/IndexController.php');
       exit;
     }
   }

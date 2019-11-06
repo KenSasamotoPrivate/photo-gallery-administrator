@@ -11,7 +11,7 @@ $(function(){
   
       if(confirm($confirmMessage)){
         //ajax
-        $.post('admin.php', {
+        $.post('IndexController.php', {
           id: id,
           mode: 'change-status'
         },function(response){

@@ -18,7 +18,7 @@ if(!isset($_SESSION['me']) || empty($_SESSION['me'])){
 <body id="complete">
   <div>
     <p>編集が完了しました。</p>
-    <a href="admin.php">TOPに戻る</a>
+    <a href="IndexController.php">TOPに戻る</a>
   </div>
 </body>
 </html>

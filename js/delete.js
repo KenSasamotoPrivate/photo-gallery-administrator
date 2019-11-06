@@ -5,7 +5,7 @@ $(function(){
         console.log(id);
         if(confirm('この作品を削除しますか？')){
           //ajax
-          $.post('admin.php',{
+          $.post('IndexController.php',{
             id: id,
             mode: 'delete'
           },function(){
