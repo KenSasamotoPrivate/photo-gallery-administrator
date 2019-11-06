@@ -1,6 +1,6 @@
 <?php
-require_once('config.php');
-
+require_once('../config.php');
+// session_start();
 if(!isset($_SESSION['me']) || empty($_SESSION['me'])){
   header('Location: http://' . $_SERVER['HTTP_HOST'].'/login.php');
   exit;
@@ -12,13 +12,13 @@ if(!isset($_SESSION['me']) || empty($_SESSION['me'])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <title>管理画面 | 編集完了</title>
 </head>
 <body id="complete">
   <div>
     <p>編集が完了しました。</p>
-    <a href="IndexController.php">TOPに戻る</a>
+    <a href="../IndexController.php">TOPに戻る</a>
   </div>
 </body>
 </html>

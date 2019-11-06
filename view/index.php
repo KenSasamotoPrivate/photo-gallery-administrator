@@ -64,7 +64,7 @@
           <li><b><?php echo h($record["title"]);?></b></li>
           <li class="delete-edit-link">
             <!-- delete >> update-delete.js -->
-            <span><a href="edit.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span>
+            <span><a href="EditController.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span>
           </li>
           <li class="status-link">
             <!-- 公開設定 >> update-delete.js -->

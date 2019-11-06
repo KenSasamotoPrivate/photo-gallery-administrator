@@ -39,7 +39,7 @@ class EditWorks extends Model {
     }
 
     private function editExecute() {
-        
+
         //!is_int($_FILES['upfile']['error']
         
         if($_FILES["upfile"]["name"] === ""){
@@ -67,7 +67,7 @@ class EditWorks extends Model {
         
         $stmt -> execute();
 
-        header('Location: http://' . $_SERVER['HTTP_HOST'].'/edit_complete.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'].'/view/edit_complete.php');
 
     }
 
