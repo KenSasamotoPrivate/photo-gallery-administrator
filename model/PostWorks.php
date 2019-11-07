@@ -1,5 +1,6 @@
 <?php
-require_once('Model.php');
+
+// require_once('Model.php');
 
 class PostWorks extends Model {
 
@@ -37,7 +38,7 @@ class PostWorks extends Model {
         $this->pdo->commit();
 
         //session_destroy();
-        header('Location: http://' . $_SERVER['HTTP_HOST'].'/IndexController.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php');
     }
 }
 

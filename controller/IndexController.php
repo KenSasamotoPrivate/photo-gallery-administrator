@@ -1,10 +1,10 @@
 <?php
-
-require_once('model/PostWorks.php');
-require_once('model/State.php');
-require_once('model/DeleteWorks.php');
-
-require_once('model/GetWorks.php');
+require_once('../config.php');
+require_once('../model/Model.php');
+require_once('../model/PostWorks.php');
+require_once('../model/State.php');
+require_once('../model/DeleteWorks.php');
+require_once('../model/GetWorks.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -42,6 +42,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 $GetWorks = new GetWorks();
 $records = $GetWorks->findAll();
 
-require_once('view/index.php');
+require_once('../view/index.php');
 
 ?>

@@ -1,9 +1,10 @@
+<!-- Include by EditController.php -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <title>管理画面 | 編集</title>
 </head>
 <body>
@@ -17,10 +18,10 @@
           //<img src="images/thumbnail/work_10_thumbnail.jpg" alt="" width="220px" height="auto">
           
           if($work["extension"] == "mp4"){
-              echo "<video src=\"import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
+              echo "<video src=\"../import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
           }
           elseif($work["extension"] == "jpeg" || $work["extension"] == "png" || $work["extension"] == "gif"){
-              echo "<img src='import_media.php?id=$id' alt='' width='220px' height='auto'>";
+              echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
           }
           echo "<br/><br/>";
         ?>

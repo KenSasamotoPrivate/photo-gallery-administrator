@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <title>管理画面</title>
 </head>
 <body>
   <header>
     <p>管理画面</p>
   </header>
-  <form action="logout.php" method="post" id="logout-form">    
+  <form action="../logout.php" method="post" id="logout-form">    
     <button type="submit" class="logout-btn">
       <span>ログアウト</span>
       <a class="site-link" href="https://hiiragi-ya.net/" target="_blank">サイトを見る</a>
@@ -49,10 +49,10 @@
           //<img src="images/thumbnail/work_10_thumbnail.jpg" alt="" width="220px" height="auto">
           
           if($record["extension"] == "mp4"){
-              echo "<video src=\"import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
+              echo "<video src=\"../import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
           }
           elseif($record["extension"] == "jpeg" || $record["extension"] == "png" || $record["extension"] == "gif"){
-              echo "<img src='import_media.php?id=$id' alt='' width='220px' height='auto'>";
+              echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
           }
           echo "<br/><br/>";
         ?>
