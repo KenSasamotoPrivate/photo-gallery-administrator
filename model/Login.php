@@ -1,9 +1,10 @@
 <?php
 
 //namespace MyApp\Controller;
-require_once('config.php');
-require_once('Model.php');
-require_once('User.php');
+
+require_once('../config.php');
+require_once('../model/Model.php');
+require_once('../model/User.php');
 
 class Login extends Model {
   

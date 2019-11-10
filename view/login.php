@@ -1,21 +1,10 @@
-<?php
-
-//require_once('config.php');
-require_once('model/Login.php');
-
-$login = new Login();
-$login->run();
-// $inputValue = $login->getValues();
-$error = $login->getErrors('login');
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Log In</title>
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
   <div id="container">
