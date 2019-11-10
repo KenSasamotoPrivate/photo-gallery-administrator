@@ -5,7 +5,8 @@
         $id = $_GET["id"];
     }
     else{
-        header("Location: index.php");
+        header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php');          
+        exit;
     }
     $MIMETypes = array(
         'png' => 'image/png',
