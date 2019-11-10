@@ -14,7 +14,7 @@ class Model {
     public function __construct(){
 
         if($this->isLoggedIn() === false){
-            header('Location: http://' . $_SERVER['HTTP_HOST'].'/login.php');            
+            header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/LoginController.php');          
             exit;
         }
 
