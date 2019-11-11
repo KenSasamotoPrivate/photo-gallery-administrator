@@ -2,13 +2,14 @@
 require_once('../model/Model.php');
 require_once('../model/EditWorks.php');
 
+if(!isset($_GET["id"])){
+    header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php'); 
+    exit;
+}
 
 $EditWorks = new EditWorks;
 
 $work = $EditWorks->editProcess();
-
-// var_dump('edit');
-// exit;
 
 $titleError = $EditWorks->getErrors('titleError');
 $titleError === '' ? $titleValue = $work['title'] : $titleValue = '';
