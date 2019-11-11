@@ -1,7 +1,7 @@
 <?php
     require_once('config.php');
     
-    if(isset($_GET["id"]) && $_GET["id"] !== ""){
+    if(isLoggedin() && isset($_GET["id"]) && $_GET["id"] !== ""){
         $id = $_GET["id"];
     }
     else{
@@ -27,5 +27,9 @@
     catch (PDOException $e) {
         echo("<p>500 Inertnal Server Error</p>");
         exit($e->getMessage());
+    }
+
+    function isLoggedin(){
+        return isset($_SESSION['me']) && !empty($_SESSION['me']);
     }
 ?>

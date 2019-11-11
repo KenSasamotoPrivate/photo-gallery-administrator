@@ -7,7 +7,6 @@ class Model {
     protected $pdo;
 
     protected $title;
-    protected $fname;
     protected $extension;
     protected $raw_data;
 
@@ -99,12 +98,6 @@ class Model {
                 echo ("<a href=\"IndexController.php\">戻る</a><br/>");
                 exit(1);
             }
-      
-            //DBに格納するファイルネーム設定
-            //サーバー側の一時的なファイルネームと取得時刻を結合した文字列にsha256をかける．
-            $date = getdate();
-            $fname = $_FILES["upfile"]["tmp_name"].$date["year"].$date["mon"].$date["mday"].$date["hours"].$date["minutes"].$date["seconds"];
-            $this->fname = hash("sha256", $fname);
             return;
         }
         //ファイル選択がない

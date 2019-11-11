@@ -50,11 +50,10 @@ class EditWorks extends Model {
         } else {
             // echo 'edit file title';
             // exit;
-            $sql = "UPDATE media SET title = :title, updated_at = :updated_at, fname = :fname, extension = :extension, raw_data = :raw_data WHERE id = :id";
+            $sql = "UPDATE media SET title = :title, updated_at = :updated_at, extension = :extension, raw_data = :raw_data WHERE id = :id";
             
             $stmt = $this->pdo->prepare($sql);
     
-            $stmt -> bindValue(":fname",$this->fname, PDO::PARAM_STR);
             $stmt -> bindValue(":extension",$this->extension, PDO::PARAM_STR);
             $stmt -> bindValue(":raw_data",$this->raw_data, PDO::PARAM_STR);
     
