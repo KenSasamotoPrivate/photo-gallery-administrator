@@ -11,7 +11,7 @@
   <header>
     <p>管理画面</p>
   </header>
-  <form action="../logout.php" method="post" id="logout-form">    
+  <form action="LogoutController.php" method="post" id="logout-form">    
     <button type="submit" class="logout-btn">
       <span>ログアウト</span>
       <a class="site-link" href="https://hiiragi-ya.net/" target="_blank">サイトを見る</a>
