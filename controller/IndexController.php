@@ -1,13 +1,9 @@
 <?php
 require_once('../config.php');
-require_once('../model/Model.php');
-//require_once('../model/PostWorks.php');
+//require_once('../model/Model.php');
 require_once('../service/PostImageService.php');
-//require_once('../model/State.php');
 require_once('../service/PublishingSettingsService.php');
-//require_once('../model/DeleteWorks.php');
 require_once('../service/DeleteImageService.php');
-//require_once('../model/GetWorks.php');
 require_once('../service/GetImageService.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
