@@ -20,7 +20,7 @@
   </form>
   <div class="post-area">
     <p class="desc">作品を新規追加する</p>
-    <form action="IndexController.php" enctype="multipart/form-data" method="post">
+    <form action="PostController.php" enctype="multipart/form-data" method="post">
       <div class="input-label-wrap">
         <label for="file">画像</label>
         <input type="file" name="upfile">

@@ -31,12 +31,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       exit;
   }
 
-  $PostImageService = new PostImageService();
-  $PostImageService->postProcess();
-  $fileError = $PostImageService->getErrors(fileError);
-  $titleError = $PostImageService->getErrors(titleError);
-  $titleValue = $PostImageService->getValues(titleValue);
-
 }
 
 $GetImages = new GetImageService();
