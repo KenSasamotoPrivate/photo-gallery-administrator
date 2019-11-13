@@ -3,25 +3,25 @@
 //namespace MyApp\Controller;
 
 require_once('../config.php');
-require_once('../model/Model.php');
+require_once('../ErrorHandler_trait.php');
 require_once('../model/User.php');
 
-class Login extends Model {
-  
-  // private $_errors;
-  // private $_values;
+class LoginService {
+
+  use ErrorHandler;
 
   public function __construct() {
     
     if(!isset($_SESSION['token'])) {
       $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(16));
     }
-    // $this->_errors = new \stdClass();
-    // $this->_values = new \stdClass();
+
+    $this->ErrorHandlerinitialize();
 
   }
 
   public function run() {
+
     //ログイン中ならTOPにリダイレクト
     if ($this->isLoggedIn()) {
       header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php');
@@ -34,6 +34,7 @@ class Login extends Model {
   }
 
   protected function postProcess() {
+
     try {
       $this->_validate();
 
@@ -85,31 +86,9 @@ class Login extends Model {
       throw new Exception();
     }
   }
-  /*
-  protected function setValues($key, $value) {
-    $this->_values->$key = $value;
-  }
 
-  public function getValues() {
-    return $this->_values;
-  }
-
-  protected function setErrors($key, $error) {
-    $this->_errors->$key = $error;
-  }
-
-  public function getErrors($key) {
-    return isset($this->_errors->$key) ? $this->_errors->$key : '';
-  }
-
-  private function hasErrors() {
-    return !empty(get_object_vars($this->_errors));
-  }
-
-  private function isLoggedIn(){
-    //$userModel->login() ログイン結果が入っているか
+  protected function isLoggedIn(){
     return isset($_SESSION['me']) && !empty($_SESSION['me']);
   }
-   */
 
 }

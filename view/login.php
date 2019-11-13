@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +11,7 @@
   <div id="container">
     <form action="" method="post" id="login">
       <p>
-        <input type="text" name="email" placeholder="email" value="<?php isset($login->getValues(email)->email) ? print h($login->getValues(email)->email) : print '' ?>">
+        <input type="text" name="email" placeholder="email" value="<?php isset($loginService->getValues(email)->email) ? print h($loginService->getValues(email)->email) : print '' ?>">
       </p>
       <p>
         <input type="password" name="password" placeholder="password">

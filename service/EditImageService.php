@@ -1,41 +1,23 @@
 <?php
-require_once('../config.php');
-class EditWorks extends Model {
+require_once('ImageService.php');
 
+class EditImageService extends ImageService {
+        
     public function editProcess(){
-
-        if($_SERVER['REQUEST_METHOD']==='POST'){
+        
+        try {
+            $this->validate();
             
-            try {
-                $this->validate();
-                
-            } catch(PDOException $e){
-                echo("<p>500 Inertnal Server Error</p>");
-                exit($e->getMessage());
-            }
-            
-            if($this->hasErrors()){
-                $this->setValues(titleValue, $this->title);
-            } else { /* エラーがない場合 */
-                $this->editExecute();
-            }
-            
+        } catch(PDOException $e){
+            echo("<p>500 Inertnal Server Error</p>");
+            exit($e->getMessage());
         }
-
-        return $this->findById();
         
-    }
-
-    private function findById() {
-        $sql = "SELECT * FROM media WHERE id = :id";
-
-        $stmt = $this->pdo->prepare($sql);
-        
-        $stmt -> bindValue(":id", $_GET['id'], PDO::PARAM_INT);
-        $stmt -> execute();
-        
-        return $stmt -> fetch(PDO::FETCH_ASSOC);
-
+        if($this->hasErrors()){
+            $this->setValues(titleValue, $this->title);
+        } else { /* エラーがない場合 */
+            $this->editExecute();
+        }
     }
 
     private function editExecute() {

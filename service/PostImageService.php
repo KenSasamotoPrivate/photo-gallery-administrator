@@ -1,8 +1,7 @@
 <?php
+require_once('ImageService.php');
 
-// require_once('Model.php');
-
-class PostWorks extends Model {
+class PostImageService extends ImageService {
 
     public function postProcess(){
 

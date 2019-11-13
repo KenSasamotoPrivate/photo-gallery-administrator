@@ -1,10 +1,14 @@
 <?php
 require_once('../config.php');
 require_once('../model/Model.php');
-require_once('../model/PostWorks.php');
-require_once('../model/State.php');
-require_once('../model/DeleteWorks.php');
-require_once('../model/GetWorks.php');
+//require_once('../model/PostWorks.php');
+require_once('../service/PostImageService.php');
+//require_once('../model/State.php');
+require_once('../service/PublishingSettingsService.php');
+//require_once('../model/DeleteWorks.php');
+require_once('../service/DeleteImageService.php');
+//require_once('../model/GetWorks.php');
+require_once('../service/GetImageService.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -13,34 +17,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   switch($mode){
 
     case 'change-status':
-      $State = new State();
+      $PublishingSettingsService = new PublishingSettingsService();
 
-      $status =  $State->stateUpdate();
+      $status =  $PublishingSettingsService->stateUpdate();
 
       header('content-Type: application/json');
-      //return to update-delete.js line 14
       echo json_encode($status);
       exit;
       //break;
 
     case 'delete':
+      
+      $DeleteImageService = new DeleteImageService();
+      $DeleteImageService->delete();
 
-      $DeleteWorks = new DeleteWorks();
-      $DeleteWorks->delete();
       break;
       exit;
   }
 
-  $PostWorks = new PostWorks();
-  $PostWorks->postProcess();
-  $fileError = $PostWorks->getErrors(fileError);
-  $titleError = $PostWorks->getErrors(titleError);
-  $titleValue = $PostWorks->getValues(titleValue);
+  $PostImageService = new PostImageService();
+  $PostImageService->postProcess();
+  $fileError = $PostImageService->getErrors(fileError);
+  $titleError = $PostImageService->getErrors(titleError);
+  $titleValue = $PostImageService->getValues(titleValue);
 
 }
 
-$GetWorks = new GetWorks();
-$records = $GetWorks->findAll();
+$GetImages = new GetImageService();
+$records = $GetImages->findAll();
 
 require_once('../view/index.php');
 

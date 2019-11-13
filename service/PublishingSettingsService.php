@@ -1,7 +1,7 @@
 <?php
-// require_once('Model.php');
+require_once('ImageService.php');
 
-class State extends Model {
+class PublishingSettingsService extends ImageService {
 
     public function stateUpdate() {
 
@@ -40,10 +40,7 @@ class State extends Model {
         return ['status' => $status];
         
     }
-    /*
-    private function getStatus(){
-    }
-    */
+
 }
 
 ?>

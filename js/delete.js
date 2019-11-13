@@ -10,8 +10,7 @@ $(function(){
             mode: 'delete'
           },function(){
               console.log(id + ' delete requested!')
-              $('div.item[data-id=' + id + ']').css('display','none');
-              //$('div.item[data-id=' + id + ']').fadeOut();
+              $('div.item[data-id=' + id + ']').css('display','none');              
           });
         }
         

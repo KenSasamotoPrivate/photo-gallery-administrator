@@ -12,29 +12,29 @@
   <form action="" enctype="multipart/form-data" class="edit-form" method="post">
     <div class="edit-target">
       <div class="img-wrap">
-        <?php $id = h($work['id']); ?>
+        <?php $id = h($image['id']); ?>
         <p>現在の画像</p>
         <?php 
           //<img src="images/thumbnail/work_10_thumbnail.jpg" alt="" width="220px" height="auto">
           
-          if($work["extension"] == "mp4"){
+          if($image["extension"] == "mp4"){
               echo "<video src=\"../import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
           }
-          elseif($work["extension"] == "jpeg" || $work["extension"] == "png" || $work["extension"] == "gif"){
+          elseif($image["extension"] == "jpeg" || $image["extension"] == "png" || $image["extension"] == "gif"){
               echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
           }
           echo "<br/><br/>";
         ?>
       </div>
       <ul class="item-data">
-        <?php $work["status"] === 'public' ? $status="公開中" : $status="非公開" ?>
+        <?php $image["status"] === 'public' ? $status="公開中" : $status="非公開" ?>
         <li><?php echo  $status;?></li>
         <li>更新日時</li>
-        <li class="date"><?php echo h($work['updated_at']);?></li>
+        <li class="date"><?php echo h($image['updated_at']);?></li>
         <li><input id="file" type="file" name="upfile"></li>
          
         <li>
-          <label for="title" class="<?php $titleError !== '' ? print 'error' : print ''?>">新しいタイトルを入力してください</label>
+          <label for="title" class="<?php $titleError !== NULL ? print 'error' : print ''?>">新しいタイトルを入力してください</label>
           <input id="title" type="text" name="title" value="<?php echo h($titleValue)?>">
         </li>
         <li class="description">※画像を選択しない場合、タイトルのみ変更されます。</li>

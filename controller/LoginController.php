@@ -1,9 +1,11 @@
 <?php
-require_once('../model/Login.php');
-$login = new Login();
-$login->run();
-// $inputValue = $login->getValues();
-$error = $login->getErrors('login');
+//require_once('../model/Login.php');
+require_once('../service/LoginService.php');
 
+$loginService = new LoginService();
+
+$loginService->run();
+
+$error = $loginService->getErrors('login');
 require_once('../view/login.php');
 ?>
