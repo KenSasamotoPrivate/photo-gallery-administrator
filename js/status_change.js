@@ -10,14 +10,12 @@ $(function(){
       }
   
       if(confirm($confirmMessage)){
-        //ajax
-        $.post('IndexController.php', {
+        // Ajax
+        $.post('PublishingController.php', {
           id: id,
-          mode: 'change-status'
         },function(response){
-          console.log(response);
+
           if(response.status === 'public'){
-            //$thisを使うと responseが対象となる
             $('ul[data-id=' + id + ']').find('li.status, li.status-link a').removeClass('private');
             $('ul[data-id=' + id + ']').find('li.status, li.status-link a').addClass('public');
           }
@@ -26,6 +24,7 @@ $(function(){
             $('ul[data-id=' + id + ']').find('li.status, li.status-link a').addClass('private');     
           }
         });
+        
       }
       return false;
     });
