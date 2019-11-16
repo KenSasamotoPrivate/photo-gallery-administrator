@@ -1,5 +1,4 @@
 <?php
-require_once('../config.php');
 require_once('../service/PostImageService.php');
 require_once('../service/GetImageService.php');
 

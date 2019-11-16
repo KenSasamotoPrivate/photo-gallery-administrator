@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+//require_once('../config.php');
 require_once('../service/GetImageService.php');
 require_once('../service/EditImageService.php');
 

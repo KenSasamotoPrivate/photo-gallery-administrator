@@ -1,5 +1,5 @@
 <?php
-// require_once('config.php');
+require_once('../config.php');
 require_once('../ErrorHandler_trait.php');
 
 class ImageService {
@@ -29,8 +29,30 @@ class ImageService {
     } 
 
     protected function validate() {
+
+        // 1.get_cfg_var()でphp.iniに設定されているpost_max_sizeを取得
+        // 2.post_max_sizeの値はMBで返されるので、1024*1024をかける
+        // 3.$_SERVERのCONTENT_LENGTHが「2」の値を超えていると、post_max_sizeを超えていることになるので、それ相応のエラーを返す。
+        /*
+        var_dump($_FILES["upfile"]["name"]);
+        echo '<br>';
+        var_dump($_FILES["upfile"]["size"]);
+        echo '<br>';
+        var_dump($_FILES["upfile"]["error"]);
+        echo '<br>';
+         
+        var_dump($_SERVER["CONTENT_LENGTH"]."<br>");
+        
+        if( 10485760 < $_SERVER["CONTENT_LENGTH"] ) {
+            echo "upload size over!";
+        } else {
+            echo "OK size!";
+        }
+        exit;
+        */
+
         if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
-            echo "token error!";
+            echo "token error";
             exit;
         }
     
@@ -74,9 +96,10 @@ class ImageService {
                 $this->extension = "mp4";
             }
             else{
-                echo "非対応ファイルです．<br/>";
-                echo ("<a href=\"IndexController.php\">戻る</a><br/>");
-                exit(1);
+                // echo "非対応ファイルです．<br/>";
+                // echo ("<a href=\"IndexController.php\">戻る</a><br/>");
+                // exit(1);
+                $this->setErrors(fileError,'非対応ファイルです');
             }
             return;
         }
