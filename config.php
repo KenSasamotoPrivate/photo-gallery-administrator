@@ -9,9 +9,9 @@ define('pass','1957');
 define('post_max_size', 10 * 1024 * 1024);
 
 $extensions = array(
-    'png' => 'image/png',
-    'jpeg' => 'image/jpeg',
-    'gif' => 'image/gif',
+    'image/png',
+    'image/jpeg',
+    'image/gif',
 );
 
 define('EXTENSIONS', $extensions);

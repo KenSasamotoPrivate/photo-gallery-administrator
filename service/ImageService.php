@@ -30,19 +30,18 @@ class ImageService {
 
     protected function validate() {
 
-        if($this->isMaxSizeOver()){
-            return;
-        }
+        if($this->isMaxSizeOver()) return;
 
         $this->tokenCheck();
-        
+
         $this->setTitle();
         
         if ($this->isFileUploaded()){
-            if($_FILES['upfile']['error'] !== UPLOAD_ERR_OK){
-                $this->setErrors(fileError,'ファイルをアップロード出来ません');
-                return;
-            }
+            
+            if($this->isfileHasError()) return;
+
+            //バイナリデータにする
+            $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
             $this->setExtension();
             return;                 
         }
@@ -51,7 +50,14 @@ class ImageService {
             $this->setErrors(fileError,'ファイルが選択されていません。');
             return;
         }
-        
+    }
+
+    private function isfileHasError(){
+        if($_FILES['upfile']['error'] === UPLOAD_ERR_OK){            
+            return false;
+        }
+        $this->setErrors(fileError,'ファイルをアップロード出来ません');
+        return true;
     }
 
     private function isMaxSizeOver(){
@@ -70,7 +76,6 @@ class ImageService {
     }
 
     private function setTitle(){
-
         $posted_title = str_replace(array(" ","　"),"",$_POST['title']);
 
         if(isset($posted_title) && $posted_title !== ''){
@@ -88,9 +93,6 @@ class ImageService {
     }
 
     private function setExtension() {
-        //バイナリデータにする
-        $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
-
         if(in_array($_FILES["upfile"]["type"], EXTENSIONS)){
             $this->extension = $_FILES["upfile"]["type"];
         } else {
