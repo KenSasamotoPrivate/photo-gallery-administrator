@@ -6,12 +6,13 @@ class EditImageService extends ImageService {
     public function editProcess(){
         
         try {
-            $this->validate();
-            
+            $this->validate();      
         } catch(PDOException $e){
             echo("<p>500 Inertnal Server Error</p>");
             exit($e->getMessage());
-        }
+        } catch(Exception $e){
+            exit($e->getMessage());
+        } 
         
         if($this->hasErrors()){
             $this->setValues(titleValue, $this->title);

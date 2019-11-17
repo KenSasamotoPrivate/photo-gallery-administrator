@@ -46,14 +46,13 @@
       <div class="item clearfix" data-id="<?php echo $id ?>">
         <div class="img-wrap">
         <?php 
-          //<img src="images/thumbnail/work_10_thumbnail.jpg" alt="" width="220px" height="auto">
-          
-          if($record["extension"] == "mp4"){
-              echo "<video src=\"../import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
-          }
-          elseif($record["extension"] == "jpeg" || $record["extension"] == "png" || $record["extension"] == "gif"){
-              echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
-          }
+
+          // if($record["extension"] == 'image/jpeg' || $record["extension"] == 'image/png' || $record["extension"] == 'image/gif'){
+          //     echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
+          // } else {            
+          //   echo "<img src='' alt='画像を表示出来ません' style='min-width : 220px; min-height: 220px; border: 1px solid;'>";
+          // }
+          echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
           echo "<br/><br/>";
         ?>
         </div>

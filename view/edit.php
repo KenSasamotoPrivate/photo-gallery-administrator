@@ -14,16 +14,9 @@
       <div class="img-wrap">
         <?php $id = h($image['id']); ?>
         <p>現在の画像</p>
-        <?php 
-          //<img src="images/thumbnail/work_10_thumbnail.jpg" alt="" width="220px" height="auto">
-          
-          if($image["extension"] == "mp4"){
-              echo "<video src=\"../import_media.php?id=$id\" width=\"426\" height=\"240\" controls></video>";
-          }
-          elseif($image["extension"] == "jpeg" || $image["extension"] == "png" || $image["extension"] == "gif"){
-              echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
-          }
-          echo "<br/><br/>";
+        <?php         
+        echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
+        echo "<br/><br/>";
         ?>
       </div>
       <ul class="item-data">
@@ -31,13 +24,15 @@
         <li><?php echo  $status;?></li>
         <li>更新日時</li>
         <li class="date"><?php echo h($image['updated_at']);?></li>
-        <li><input id="file" type="file" name="upfile"></li>
-         
+        <li class="description">※画像を選択しない場合、タイトルのみ変更されます。</li>
         <li>
-          <label for="title" class="<?php $titleError !== NULL ? print 'error' : print ''?>">新しいタイトルを入力してください</label>
+          <input id="file" type="file" name="upfile">
+          <span class="file-error-msg"><?php echo h($fileError);?></span>
+        </li>                 
+        <li>
+          <label for="title" class="<?php $titleError !== '' && $titleError !== NULL ? print 'error' : print ''?>">タイトルを入力してください</label>
           <input id="title" type="text" name="title" value="<?php echo h($titleValue)?>">
         </li>
-        <li class="description">※画像を選択しない場合、タイトルのみ変更されます。</li>
       </ul>
     </div>
     <div class="btn-wrap">

@@ -1,5 +1,4 @@
 <?php
-//require_once('../config.php');
 require_once('../service/GetImageService.php');
 require_once('../service/EditImageService.php');
 
@@ -19,7 +18,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $EditImageService->editProcess();
 
     $titleError = $EditImageService->getErrors('titleError');
-    $titleValue = $titleError === '' ? $image['title'] : '';
+
+    //$titleValue = $titleError === '' ? $image['title'] : '';
+    $titleValue = $_POST['title'];
+
+    $fileError = $EditImageService->getErrors('fileError');
 }
 
 require_once('../view/edit.php');

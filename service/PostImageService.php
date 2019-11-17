@@ -10,17 +10,20 @@ class PostImageService extends ImageService {
         } catch(PDOException $e){
             echo("<p>500 Inertnal Server Error</p>");
             exit($e->getMessage());
-        }
+        } catch(Exception $e){
+            exit($e->getMessage());
+        } 
 
         if($this->hasErrors()){
             $this->setValues(titleValue, $this->title);
             return;
         } else { /* エラーがない場合 */
-            $this->create();
+            $this->execute();
         }
     }
 
-    private function create() {
+    private function execute() {
+        
         $this->pdo->beginTransaction();
         // echo 'execute'.'<br>';exit;
         $sql = "INSERT INTO media(title, posted_at, updated_at, extension, raw_data) VALUES 
@@ -34,8 +37,6 @@ class PostImageService extends ImageService {
         $stmt -> bindValue(":raw_data",$this->raw_data, PDO::PARAM_STR);
         $stmt -> execute();
         $this->pdo->commit();
-
-        //session_destroy();
         header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php');
     }
 }

@@ -1,4 +1,9 @@
 <?php
+if($_SERVER['REQUEST_METHOD']==='GET'){
+    header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php'); 
+    exit;
+}
+
 require_once('../service/PostImageService.php');
 require_once('../service/GetImageService.php');
 

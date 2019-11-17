@@ -157,6 +157,11 @@ form.edit-form input[type="file"]{
 .upload-notice {
   font-size: 0.88rem;
 }
+.file-error-msg {
+  display: inline-block;
+  color: red;
+  min-height: 24px;
+}
 /* edit complete */
 #complete {
   text-align: center;
@@ -206,7 +211,6 @@ form.edit-form input[type="file"]{
   .edit-target {
     display: block;
   }
-  
   .edit-target ul.item-data {
     width:80%;
   }
