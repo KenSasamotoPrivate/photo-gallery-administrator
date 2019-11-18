@@ -6,8 +6,6 @@ class UploadedData {
 
     use ErrorHandler;
     
-    //protected $pdo;
-    
     public $title;
     public $extension;
     public $raw_data;
@@ -15,18 +13,7 @@ class UploadedData {
     public function __construct(){
 
         $this->ErrorHandlerinitialize();
-/*
-        if($this->isLoggedIn() === false){
-            header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/LoginController.php');          
-            exit;
-        }
 
-        if(!isset($_SESSION['token'])) {
-            $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(16));
-        }
-
-        $this->pdo = new PDO(DSN, user, pass);
-*/
     } 
 
     public function validate() {
