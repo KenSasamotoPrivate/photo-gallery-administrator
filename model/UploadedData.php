@@ -47,10 +47,6 @@ class UploadedData {
             return;                 
         }
 
-        if($_POST['mode'] !== 'edit'){            
-            $this->setErrors(fileError,'ファイルが選択されていません。');
-            return;
-        }
     }
 
     private function isfileHasError(){
@@ -90,6 +86,9 @@ class UploadedData {
         if(isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== ""){
             return true;
         } 
+        if($_POST['mode'] === 'edit') return;
+
+        $this->setErrors(fileError,'ファイルが選択されていません。'); 
         return false;
     }
 
