@@ -1,12 +1,36 @@
 <?php
-require_once('ImageService.php');
+//require_once('ImageService.php');
+require_once('../model/UploadedData.php');
 
-class EditImageService extends ImageService {
-        
+class EditImageService {
+    
+    private $pdo;
+    public $uploadedData;
+
+    public function __construct(){
+
+        if($this->isLoggedIn() === false){
+            header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/LoginController.php');          
+            exit;
+        }
+
+        if(!isset($_SESSION['token'])) {
+            $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(16));
+        }
+
+        $this->pdo = new PDO(DSN, user, pass);
+
+        $this->$uploadedData = new UploadedData;
+
+    }
+
     public function editProcess(){
         
+        $_uploadedData = $this->$uploadedData;
+
         try {
-            $this->validate();      
+            // $this->validate();
+            $_uploadedData->validate();      
         } catch(PDOException $e){
             echo("<p>500 Inertnal Server Error</p>");
             exit($e->getMessage());
@@ -14,14 +38,14 @@ class EditImageService extends ImageService {
             exit($e->getMessage());
         } 
         
-        if($this->hasErrors()){
-            $this->setValues(titleValue, $this->title);
+        if($_uploadedData->hasErrors()){
+            $_uploadedData->setValues(titleValue, $_uploadedData->title);
         } else { /* エラーがない場合 */
-            $this->editExecute();
+            $this->editExecute($_uploadedData);
         }
     }
 
-    private function editExecute() {
+    private function editExecute($_uploadedData) {
 
         //!is_int($_FILES['upfile']['error']
         
@@ -37,12 +61,12 @@ class EditImageService extends ImageService {
             
             $stmt = $this->pdo->prepare($sql);
     
-            $stmt -> bindValue(":extension",$this->extension, PDO::PARAM_STR);
-            $stmt -> bindValue(":raw_data",$this->raw_data, PDO::PARAM_STR);
+            $stmt -> bindValue(":extension", $_uploadedData->extension, PDO::PARAM_STR);
+            $stmt -> bindValue(":raw_data", $_uploadedData->raw_data, PDO::PARAM_STR);
     
         }
         
-        $stmt -> bindValue(":title", $this->title, PDO::PARAM_STR);
+        $stmt -> bindValue(":title", $_uploadedData->title, PDO::PARAM_STR);
         $stmt -> bindValue(":updated_at", date("Y/m/d H:i:s"));
 
         $stmt -> bindValue(":id", $_GET['id'], PDO::PARAM_INT);
@@ -51,6 +75,10 @@ class EditImageService extends ImageService {
 
         header('Location: http://' . $_SERVER['HTTP_HOST'].'/view/edit_complete.php');
 
+    }
+
+    protected function isLoggedIn(){
+        return isset($_SESSION['me']) && !empty($_SESSION['me']);
     }
 
 }

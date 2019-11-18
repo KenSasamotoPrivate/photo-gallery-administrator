@@ -1,4 +1,5 @@
 <?php
+require_once('../config.php');
 require_once('../service/GetImageService.php');
 require_once('../service/EditImageService.php');
 
@@ -13,16 +14,17 @@ $image = $GetImageService->findById();
 $titleValue = $image['title'];
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-    
+    // echo 'BEFORE NEW';
+    // exit;
     $EditImageService = new EditImageService();
     $EditImageService->editProcess();
 
-    $titleError = $EditImageService->getErrors('titleError');
+    $titleError = $EditImageService->$uploadedData->getErrors('titleError');
 
     //$titleValue = $titleError === '' ? $image['title'] : '';
     $titleValue = $_POST['title'];
 
-    $fileError = $EditImageService->getErrors('fileError');
+    $fileError = $EditImageService->$uploadedData->getErrors('fileError');
 }
 
 require_once('../view/edit.php');

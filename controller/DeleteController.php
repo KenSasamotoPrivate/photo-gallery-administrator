@@ -1,5 +1,6 @@
 <?php
 //called by delete.js
+require_once('../config.php');
 require_once('../service/DeleteImageService.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
