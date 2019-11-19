@@ -25,13 +25,10 @@ class UploadedData {
         $this->setTitle();
         
         if ($this->isFileUploaded()){
-            
             if($this->isfileHasError()) return;
-
             //バイナリデータにする
             $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
-            $this->setExtension();
-            return;                 
+            $this->setExtension();              
         }
 
     }
