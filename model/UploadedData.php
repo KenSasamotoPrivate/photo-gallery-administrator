@@ -18,14 +18,15 @@ class UploadedData {
 
     public function validate() {
 
-        if($this->isMaxSizeOver()) return;
-
+        if($this->isMaxSizeOver())
+        return;
         $this->tokenCheck();
 
         $this->setTitle();
         
         if ($this->isFileUploaded()){
-            if($this->isfileHasError()) return;
+            if($this->isfileHasError())
+            return;
             //バイナリデータにする
             $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
             $this->setExtension();              
@@ -41,12 +42,13 @@ class UploadedData {
         return true;
     }
 
-    private function isMaxSizeOver(){
-        if( post_max_size < $_SERVER["CONTENT_LENGTH"] ) {            
-            $this->setErrors(fileError,'ファイルサイズが大きすぎます。');
-            return true;
-        } 
-        return false;
+    private function isMaxSizeOver(){   
+        if( $_SERVER["CONTENT_LENGTH"] < post_max_size  )
+        return false;          
+        
+        $this->setErrors(fileError,'ファイルサイズが大きすぎます。');
+        return true;
+        
     }
 
     private function tokenCheck(){
@@ -70,8 +72,8 @@ class UploadedData {
         if(isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== ""){
             return true;
         } 
-        if($_POST['mode'] === 'edit') return;
-
+        if($_POST['mode'] === 'edit')
+        return;
         $this->setErrors(fileError,'ファイルが選択されていません。'); 
         return false;
     }
@@ -79,10 +81,9 @@ class UploadedData {
     private function setExtension() {
         if(in_array($_FILES["upfile"]["type"], EXTENSIONS)){
             $this->extension = $_FILES["upfile"]["type"];
-        } else {
-            $this->setErrors(fileError,'非対応ファイルです');
             return;
-        }  
+        } 
+        $this->setErrors(fileError,'非対応ファイルです');
     }
 }
 ?>
