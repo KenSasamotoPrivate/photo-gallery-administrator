@@ -1,6 +1,6 @@
 <?php
-//require_once('ImageService.php');
 require_once('../model/UploadedData.php');
+require_once('../model/ExportData.php');
 
 class GetImageService {
     
@@ -26,19 +26,21 @@ class GetImageService {
         $sql = "SELECT * FROM media ORDER BY id desc;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-
-        return $stmt -> fetchAll(PDO::FETCH_ASSOC);
+        return $stmt -> fetchAll(PDO::FETCH_CLASS,'ExportData');
     }
 
-    public function findById() {
+    public function findById($id) {
+
         $sql = "SELECT * FROM media WHERE id = :id";
 
         $stmt = $this->pdo->prepare($sql);
         
-        $stmt -> bindValue(":id", $_GET['id'], PDO::PARAM_INT);
+        $stmt -> bindValue(":id", $id, PDO::PARAM_INT);
         $stmt -> execute();
-        
-        $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+        $result = $stmt -> fetch(PDO::FETCH_OBJ);
+        // var_dump($result);
+        // exit;
+
         
         if(empty($result)){        
             header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php'); 

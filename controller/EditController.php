@@ -10,7 +10,7 @@ if(!isset($_GET["id"])){
 
 $GetImageService = new GetImageService();
 
-$image = $GetImageService->findById();
+$image = $GetImageService->findById($_GET['id']);
 $titleValue = $image['title'];
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
