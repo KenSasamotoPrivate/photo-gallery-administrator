@@ -37,11 +37,9 @@ class GetImageService {
         
         $stmt -> bindValue(":id", $id, PDO::PARAM_INT);
         $stmt -> execute();
+        // $result = $stmt -> fetch(PDO::FETCH_CLASS,'ExportData');        
         $result = $stmt -> fetch(PDO::FETCH_OBJ);
-        // var_dump($result);
-        // exit;
 
-        
         if(empty($result)){        
             header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php'); 
         }
