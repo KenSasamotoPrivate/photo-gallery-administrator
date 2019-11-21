@@ -1,6 +1,5 @@
 <?php
 require_once('../model/UploadedData.php');
-require_once('../model/ExportData.php');
 
 class GetImageService {
     
@@ -26,7 +25,8 @@ class GetImageService {
         $sql = "SELECT * FROM media ORDER BY id desc;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-        return $stmt -> fetchAll(PDO::FETCH_CLASS,'ExportData');
+        // return $stmt -> fetchAll(PDO::FETCH_CLASS,'ExportData');
+        return $stmt -> fetchAll(PDO::FETCH_OBJ);
     }
 
     public function findById($id) {

@@ -1,4 +1,5 @@
 <?php
+//no use
 //require_once('../config.php');
 require_once('../ErrorHandler_trait.php');
 
