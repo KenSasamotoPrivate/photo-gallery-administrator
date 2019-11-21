@@ -12,18 +12,18 @@
   <form action="" enctype="multipart/form-data" class="edit-form" method="post">
     <div class="edit-target">
       <div class="img-wrap">
-        <?php $id = h($image['id']); ?>
+        <?php $id = h($image->id); ?>
         <p>現在の画像</p>
         <?php         
-        echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
+        echo "<img src='../service/exportImageService.php?id=$id' alt='' width='220px' height='auto'>";
         echo "<br/><br/>";
         ?>
       </div>
       <ul class="item-data">
-        <?php $image["status"] === 'public' ? $status="公開中" : $status="非公開" ?>
+        <?php $image->status === 'public' ? $status="公開中" : $status="非公開" ?>
         <li><?php echo  $status;?></li>
         <li>更新日時</li>
-        <li class="date"><?php echo h($image['updated_at']);?></li>
+        <li class="date"><?php echo h($image->updated_at);?></li>
         <li class="description">※画像を選択しない場合、タイトルのみ変更されます。</li>
         <li>
           <input id="file" type="file" name="upfile">

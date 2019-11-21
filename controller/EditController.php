@@ -11,7 +11,8 @@ if(!isset($_GET["id"])){
 $GetImageService = new GetImageService();
 
 $image = $GetImageService->findById($_GET['id']);
-$titleValue = $image['title'];
+
+$titleValue = $image->title;
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
     // echo 'BEFORE NEW';
