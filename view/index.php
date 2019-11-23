@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../resources/css/admin.css">
   <title>管理画面</title>
 </head>
 <body>
@@ -73,8 +73,8 @@
       </div>
     <?php endforeach ?>
   </div>
-<script src="/js/jquery-3.3.1.min.js"></script>
-<script src="/js/status_change.js"></script>
-<script src="/js/delete.js"></script>
+<script src="/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/resources/js/status_change.js"></script>
+<script src="/resources/js/delete.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../resources/css/admin.css">
   <title>管理画面 | 編集</title>
 </head>
 <body>
@@ -42,9 +42,5 @@
       <input type="hidden" name="mode" value="edit">
     </div>
   </form>
-  
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-<script src="jquery-3.3.1.min.js"></script>
-<script src="update-delete.js"></script>
 </body>
 </html>
