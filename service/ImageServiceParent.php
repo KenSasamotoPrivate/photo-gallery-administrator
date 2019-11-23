@@ -1,14 +1,11 @@
 <?php
-require_once('../config.php');
-require_once('../ErrorHandler_trait.php');
+//require_once('../ErrorHandler_trait.php');
 
-class ImageService {
+class ImageServiceParent {
     
     protected $pdo;
 
     public function __construct(){
-
-        $this->ErrorHandlerinitialize();
 
         if($this->isLoggedIn() === false){
             header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/LoginController.php');          
