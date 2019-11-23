@@ -4,7 +4,7 @@ class User {
 
     public function __construct() {
         try {
-            $this->db = new PDO(DSN_LOGIN_TABLE, user, pass);
+            $this->db = new PDO(DSN, user, pass);
         } catch (PDOExecption $e){
             echo $e->getMessage();
             exit;
