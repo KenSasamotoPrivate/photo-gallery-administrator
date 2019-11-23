@@ -1,5 +1,5 @@
 <?php
-//require_once('../model/Login.php');
+require_once('../config.php');
 require_once('../service/LoginService.php');
 
 $loginService = new LoginService();

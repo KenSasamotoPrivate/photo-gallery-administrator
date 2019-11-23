@@ -1,8 +1,6 @@
 <?php
 
 //namespace MyApp\Controller;
-
-require_once('../config.php');
 require_once('../ErrorHandler_trait.php');
 require_once('../model/User.php');
 
@@ -23,7 +21,7 @@ class LoginService {
   public function run() {
 
     //ログイン中ならTOPにリダイレクト
-    if ($this->isLoggedIn()) {
+    if (isLoggedIn() === true) {
       header('Location: http://' . $_SERVER['HTTP_HOST'].'/controller/IndexController.php');
       exit;
     }
@@ -85,10 +83,6 @@ class LoginService {
     if ($_POST['email'] === '' || $_POST['password'] === '') {
       throw new Exception();
     }
-  }
-
-  protected function isLoggedIn(){
-    return isset($_SESSION['me']) && !empty($_SESSION['me']);
   }
 
 }
