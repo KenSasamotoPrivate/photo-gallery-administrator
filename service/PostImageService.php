@@ -1,5 +1,4 @@
 <?php
-require_once('../config.php');
 require_once('ImageServiceParent.php');
 require_once('../model/UploadedData.php');
 
