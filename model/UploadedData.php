@@ -1,6 +1,6 @@
 <?php
 //require_once('../config.php');
-require_once('../ErrorHandler_trait.php');
+require_once('../model/ErrorHandler_trait.php');
 
 class UploadedData {
 

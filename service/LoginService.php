@@ -1,7 +1,7 @@
 <?php
 
 //namespace MyApp\Controller;
-require_once('../ErrorHandler_trait.php');
+require_once('../model/ErrorHandler_trait.php');
 require_once('../model/User.php');
 
 class LoginService {
