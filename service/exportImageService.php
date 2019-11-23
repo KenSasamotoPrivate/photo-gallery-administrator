@@ -3,7 +3,7 @@ require_once('../config.php');
 require_once('GetImageService.php');
 
 
-if(isLoggedin() && isset($_GET["id"]) && $_GET["id"] !== ""){
+if(isset($_GET["id"]) && $_GET["id"] !== ""){
     $id = $_GET["id"];
 }
 else{
@@ -19,7 +19,4 @@ $image = $GetImageService->findById($_GET['id']);
 header("Content-Type: ".$image->extension);
 echo ($image->raw_data);
 
-function isLoggedin(){
-    return isset($_SESSION['me']) && !empty($_SESSION['me']);
-}
 ?>
