@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../resources/css/admin.css">
+  <link rel="stylesheet" href="../resources/css/style.css">
   <title>管理画面 | 編集</title>
 </head>
 <body>
