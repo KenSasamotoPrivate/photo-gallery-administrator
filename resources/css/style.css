@@ -107,71 +107,12 @@ ul.item-data li.status.private::after {
 .statusLink.private::after {
   content:"公開する";
 }
-/* edit */
 ul li.delete-edit-link {
   float: left;
 }
 ul li.status-link {
   float: right;
   margin-left: 1rem;
-}
-form.edit-form {
-  margin-top: 50px;
-  width: 500px;
-  margin: 50px auto 0;
-}
-form.edit-form .d-flex {
-  align-items: center;
-}
-form.edit-form .item-data {
-  margin-top: 1rem;
-}
-form.edit-form .description {
-  margin-top: 0.5rem;
-  font-size: 0.88rem;
-}
-form.edit-form .btn-wrap {
-  width:500px;
-  text-align: center;
-}
-form.edit-form button {
-  width: 200px;
-  font-size: 1rem;
-}
-form.edit-form  ul.item-data b {
-  font-size: 1rem;
-}
-form.edit-form .img-wrap p {
-  font-size: 0.88rem;
-}
-form.edit-form ul.item-data li {
-  margin-bottom: 0rem;
-}
-form.edit-form input[type="file"]{
-  margin-top: 0.5rem;
-}
-.error {
-  color: red;
-  font-size: 0.88rem;
-}
-.upload-notice {
-  font-size: 0.88rem;
-}
-.file-error-msg {
-  display: inline-block;
-  color: red;
-  min-height: 24px;
-}
-/* edit complete */
-#complete {
-  text-align: center;
-}
-#complete div {
-  margin-top:50px;
-}
-#complete p {
-  margin-bottom:1rem;
-  font-size:1.5rem;
 }
 @media screen and (max-width:414px) {
   .post-area {
@@ -200,18 +141,5 @@ form.edit-form input[type="file"]{
     content: "";
     display: block;
     clear:both;
-  }
-  /*edit*/
-  body {
-    max-width: 100%;
-  }
-  form.edit-form, form.edit-form .btn-wrap {
-    width: 100%;
-  }
-  .edit-target {
-    display: block;
-  }
-  .edit-target ul.item-data {
-    width:80%;
   }
 }
