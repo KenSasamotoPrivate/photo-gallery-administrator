@@ -96,7 +96,6 @@ ul.item-data li.status.public::after {
 }
 ul.item-data li.status.private {
   background-color:darkgray;
-
 }
 ul.item-data li.status.private::after {
   content:"非公開";
@@ -113,6 +112,10 @@ ul li.delete-edit-link {
 ul li.status-link {
   float: right;
   margin-left: 1rem;
+}
+.error {
+  color: red;
+  font-size: 0.88rem;
 }
 @media screen and (max-width:414px) {
   .post-area {

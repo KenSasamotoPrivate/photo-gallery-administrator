@@ -35,10 +35,10 @@ form.edit-form ul.item-data li {
 form.edit-form input[type="file"]{
   margin-top: 0.5rem;
 }
-.error {
+/* .error {
   color: red;
   font-size: 0.88rem;
-}
+} */
 .upload-notice {
   font-size: 0.88rem;
 }
