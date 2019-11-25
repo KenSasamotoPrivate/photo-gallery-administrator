@@ -13,7 +13,6 @@ $(function(){
         // Ajax
         $.post('PublishingController.php', {
           id: id,
-          // mode: 'edit',
         },function(response){
 
           if(response.status === 'public'){

@@ -1,5 +1,4 @@
 <?php
-//require_once('../config.php');
 require_once('../model/ErrorHandler_trait.php');
 
 class UploadedData {
@@ -11,9 +10,7 @@ class UploadedData {
     public $raw_data;
 
     public function __construct(){
-
         $this->ErrorHandlerinitialize();
-
     } 
 
     public function validate() {
@@ -27,7 +24,6 @@ class UploadedData {
         if ($this->isFileUploaded()){
             if($this->isfileHasError())
             return;
-            //バイナリデータにする
             $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
             $this->setExtension();              
         }

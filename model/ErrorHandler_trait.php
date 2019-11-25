@@ -1,5 +1,4 @@
 <?php
-// require_once('config.php');
 trait ErrorHandler {
     
     public $_errors;

@@ -45,13 +45,6 @@
       <div class="item clearfix" data-id="<?php echo $id ?>">
         <div class="img-wrap">
         <?php 
-          // if($record["extension"] == 'image/jpeg' || $record["extension"] == 'image/png' || $record["extension"] == 'image/gif'){
-          //     echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
-          // } else {            
-          //   echo "<img src='' alt='画像を表示出来ません' style='min-width : 220px; min-height: 220px; border: 1px solid;'>";
-          // }
-          //echo "<img src='../import_media.php?id=$id' alt='' width='220px' height='auto'>";
-
           echo "<img src='../service/exportImageService.php?id=$id' alt='' width='220px' height='auto'>";          
           echo "<br/><br/>";
         ?>
@@ -62,11 +55,11 @@
           <li class="date"><?php echo h($record->updated_at);?></li>
           <li><b><?php echo h($record->title);?></b></li>
           <li class="delete-edit-link">
-            <!-- delete >> update-delete.js -->
+            <!-- delete ajax >> delete.js -->
             <span><a href="EditController.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span>
           </li>
           <li class="status-link">
-            <!-- 公開設定 >> update-delete.js -->
+            <!-- ajax >> status_change.js -->
             <span><a class="statusLink <?php echo h($record->status); ?>" href=""></a></span>
           </li>
         </ul>

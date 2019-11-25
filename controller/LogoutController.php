@@ -2,11 +2,6 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  //debug
-  // var_dump($_POST['token']);
-  // echo "<br>";
-  // var_dump($_SESSION['token']);
-  // echo "<br>";
 
   if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
     echo "Invalid Token!";

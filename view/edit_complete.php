@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-// session_start();
+
 if(!isset($_SESSION['me']) || empty($_SESSION['me'])){
   header('Location: http://' . $_SERVER['HTTP_HOST'].'/login.php');
   exit;

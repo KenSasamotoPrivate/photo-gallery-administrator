@@ -11,7 +11,6 @@ class User {
         }
     }  
 
-    /* login */
     public function login($values) {
 
         $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
@@ -30,12 +29,9 @@ class User {
         if(!password_verify($values['password'], $user->password)) {
             throw new Exception();
         }
-        
-        //Login.phpで$_SESSION['me']に格納するためにreturn
         return $user;
 
-    }
-    
+    }  
 }
 
 ?>

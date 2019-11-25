@@ -16,7 +16,6 @@ class EditImageService extends ImageServiceParent {
         $_uploadedData = $this->$uploadedData;
 
         try {
-            // $this->validate();
             $_uploadedData->validate();      
         } catch(PDOException $e){
             echo("<p>500 Inertnal Server Error</p>");
@@ -27,23 +26,17 @@ class EditImageService extends ImageServiceParent {
         
         if($_uploadedData->hasErrors()){
             $_uploadedData->setValues(titleValue, $_uploadedData->title);
-        } else { /* エラーがない場合 */
+        } else {
             $this->editExecute($_uploadedData);
         }
     }
 
     private function editExecute($_uploadedData) {
-
-        //!is_int($_FILES['upfile']['error']
         
         if($_FILES["upfile"]["name"] === ""){
-            // echo 'edit title only' ;
-            // exit;
             $sql = "UPDATE media SET title = :title, updated_at = :updated_at WHERE id = :id";
             $stmt = $this->pdo->prepare($sql);
         } else {
-            // echo 'edit file title';
-            // exit;
             $sql = "UPDATE media SET title = :title, updated_at = :updated_at, extension = :extension, raw_data = :raw_data WHERE id = :id";
             
             $stmt = $this->pdo->prepare($sql);
