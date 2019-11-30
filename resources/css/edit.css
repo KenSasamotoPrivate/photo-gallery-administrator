@@ -35,9 +35,6 @@ form.edit-form ul.item-data li {
 form.edit-form input[type="file"]{
   margin-top: 0.5rem;
 }
-.upload-notice {
-  font-size: 0.88rem;
-}
 .file-error-msg {
   display: inline-block;
   color: red;
