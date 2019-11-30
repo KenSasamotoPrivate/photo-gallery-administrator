@@ -56,12 +56,17 @@ class UploadedData {
 
     private function setTitle(){
         $posted_title = str_replace(array(" ","　"),"",$_POST['title']);
+        
+        if(!isset($posted_title) || $posted_title == ''){
+            $this->setErrors(titleError,'タイトルを入力してください。'); 
+            return;
+        } 
+        $this->title = $posted_title;
 
-        if(isset($posted_title) && $posted_title !== ''){
-            $this->title = $posted_title;
-        } else {
-            $this->setErrors(titleError,'タイトルを入力してください。');
+        if(40 < mb_strlen($_POST['title'])){
+            $this->setErrors(titleError,'40文字以内で入力してください。');
         }
+
     }
 
     private function isFileUploaded(){
