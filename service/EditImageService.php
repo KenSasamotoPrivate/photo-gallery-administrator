@@ -34,10 +34,10 @@ class EditImageService extends ImageServiceParent {
     private function editExecute($_uploadedData) {
         
         if($_FILES["upfile"]["name"] === ""){
-            $sql = "UPDATE media SET title = :title, updated_at = :updated_at WHERE id = :id";
+            $sql = "UPDATE media SET title = :title, comment = :comment, updated_at = :updated_at WHERE id = :id";
             $stmt = $this->pdo->prepare($sql);
         } else {
-            $sql = "UPDATE media SET title = :title, updated_at = :updated_at, extension = :extension, raw_data = :raw_data WHERE id = :id";
+            $sql = "UPDATE media SET title = :title, comment = :comment, updated_at = :updated_at, extension = :extension, raw_data = :raw_data WHERE id = :id";
             
             $stmt = $this->pdo->prepare($sql);
     
@@ -47,6 +47,8 @@ class EditImageService extends ImageServiceParent {
         }
         
         $stmt -> bindValue(":title", $_uploadedData->title, PDO::PARAM_STR);
+        $stmt -> bindValue(":comment", $_uploadedData->comment, PDO::PARAM_STR);
+        
         $stmt -> bindValue(":updated_at", date("Y/m/d H:i:s"));
 
         $stmt -> bindValue(":id", $_GET['id'], PDO::PARAM_INT);
