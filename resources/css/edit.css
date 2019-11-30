@@ -32,17 +32,6 @@ form.edit-form .img-wrap p {
 form.edit-form ul.item-data li {
   margin-bottom: 0rem;
 }
-form.edit-form input[type="file"]{
-  margin-top: 0.5rem;
-}
-.file-error-msg {
-  display: inline-block;
-  color: red;
-  min-height: 24px;
-}
-label.error {
-  min-height: 21px;
-}
 /* edit complete */
 #complete {
   text-align: center;

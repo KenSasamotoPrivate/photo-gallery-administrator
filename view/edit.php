@@ -25,15 +25,21 @@
         <li><?php echo  $status;?></li>
         <li>更新日時</li>
         <li class="date"><?php echo h($image->updated_at);?></li>
-        <li class="description">※画像を選択しない場合、タイトルのみ変更されます。</li>
+        <li class="description">※全て、もしくは必要な項目のみ変更出来ます。</li>
         <li>
+          <label for="file">画像</label>
           <input id="file" type="file" name="upfile">
-          <span class="file-error-msg"><?php echo h($fileError);?></span>
+          <p class="upload-notice">
+            ※png, jpeg, gif形式に対応（5MB以下推奨)
+            <span class="error"><?php echo h($fileError);?></span>
+          </p>
         </li>                 
         <li>
-          <!-- <label for="title" class="<?php $titleError !== '' && $titleError !== NULL ? print 'error' : print ''?>">タイトルを入力してください</label> -->
-          <label for="title" class="error"><?php echo h($titleError); ?></label>
+          <label for="title">新しいタイトル ※40文字まで</label>
           <input id="title" type="text" name="title" value="<?php echo h($titleValue)?>">
+          <p class="error"><?php echo h($titleError); ?></p>
+          <label for="comment">コメント（任意）※100文字まで</label>
+          <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
         </li>
       </ul>
     </div>

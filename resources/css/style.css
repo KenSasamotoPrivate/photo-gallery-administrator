@@ -35,8 +35,11 @@ label, input {
 label {
   margin-top: 0.5rem;
 }
-.input-label-wrap {
-  height: 63px;
+.require:before {
+  content:"(必須)";
+  color:red;
+  font-size: 0.88rem;
+  margin-right:0.3rem;
 }
 header, #logout-form {
   width: 500px;
@@ -119,6 +122,8 @@ ul li.status-link {
 .error {
   color: red;
   font-size: 0.88rem;
+  min-height: 21px;
+  display: block;
 }
 @media screen and (max-width:414px) {
   .post-area {
@@ -142,6 +147,7 @@ ul li.status-link {
   ul.item-data {
     width: 220px;
     margin: 0 auto;
+    overflow-x: scroll;
   }
   .clearfix::after {
     content: "";

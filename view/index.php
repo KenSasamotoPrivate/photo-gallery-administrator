@@ -21,15 +21,17 @@
     <p class="desc">作品を新規追加する</p>
     <form action="PostController.php" enctype="multipart/form-data" method="post">
       <div class="input-label-wrap">
-        <label for="file">画像</label>
+        <label class="require" for="file">画像</label>
         <input type="file" name="upfile">
-        <p class="upload-notice">5MB以下推奨&nbsp;<span class="<?php $fileError !== '' ? print 'error' : print ''?>"><?php echo h($fileError);?></span></p>
+        <p class="upload-notice">※png, jpeg, gif形式に対応（5MB以下推奨)<span class="<?php $fileError !== '' ? print 'error' : print ''?>"><?php echo h($fileError);?></span></p>
       </div>
       
       <div class="input-label-wrap">
-        <label for="title">作品名</label>
+        <label  class="require" for="title">タイトル ※40文字まで</label>
         <input id="title" type="text" name="title" value="<?php echo h($titleValue);?>">
-        <p class="<?php $titleError !== '' ? print 'error' : print ''?>"><?php echo h($titleError);?></p>
+        <span class="error"><?php echo h($titleError);?></span>
+        <label for="comment">コメント（任意）※100文字まで</label>
+        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
       </div>
       
       <div class="btn-wrap">
