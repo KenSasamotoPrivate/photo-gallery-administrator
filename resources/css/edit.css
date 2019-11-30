@@ -40,6 +40,9 @@ form.edit-form input[type="file"]{
   color: red;
   min-height: 24px;
 }
+label.error {
+  min-height: 21px;
+}
 /* edit complete */
 #complete {
   text-align: center;

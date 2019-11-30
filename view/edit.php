@@ -31,7 +31,8 @@
           <span class="file-error-msg"><?php echo h($fileError);?></span>
         </li>                 
         <li>
-          <label for="title" class="<?php $titleError !== '' && $titleError !== NULL ? print 'error' : print ''?>">タイトルを入力してください</label>
+          <!-- <label for="title" class="<?php $titleError !== '' && $titleError !== NULL ? print 'error' : print ''?>">タイトルを入力してください</label> -->
+          <label for="title" class="error"><?php echo h($titleError); ?></label>
           <input id="title" type="text" name="title" value="<?php echo h($titleValue)?>">
         </li>
       </ul>
