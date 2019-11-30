@@ -31,7 +31,8 @@
         <input id="title" type="text" name="title" value="<?php echo h($titleValue);?>">
         <span class="error"><?php echo h($titleError);?></span>
         <label for="comment">コメント（任意）※100文字まで</label>
-        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+        <textarea name="comment" id="comment" cols="30" rows="5"><?php echo h($commentValue);?></textarea>
+        <span class="error"><?php echo h($commentError);?></span>
       </div>
       
       <div class="btn-wrap">

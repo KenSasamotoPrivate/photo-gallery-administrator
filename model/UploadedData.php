@@ -9,17 +9,25 @@ class UploadedData {
     public $extension;
     public $raw_data;
 
+    public $comment;
+
     public function __construct(){
         $this->ErrorHandlerinitialize();
     } 
 
     public function validate() {
+        /*
+        var_dump($_POST['comment']);
+        exit;
+         */
 
         if($this->isMaxSizeOver())
         return;
         $this->tokenCheck();
 
         $this->setTitle();
+
+        $this->setComment();
         
         if ($this->isFileUploaded()){
             if($this->isfileHasError())
@@ -56,18 +64,33 @@ class UploadedData {
 
     private function setTitle(){
         $posted_title = str_replace(array(" ","　"),"",$_POST['title']);
-        
+
         if(!isset($posted_title) || $posted_title == ''){
             $this->setErrors(titleError,'タイトルを入力してください。'); 
             return;
         } 
+
         $this->title = $posted_title;
 
         if(40 < mb_strlen($_POST['title'])){
             $this->setErrors(titleError,'40文字以内で入力してください。');
         }
-
     }
+
+    private function setComment(){
+        $posted_comment = str_replace(array(" ","　"),"", $_POST['comment']);
+        
+        if(!isset($posted_comment) || $posted_comment == ''){
+            return;
+        } 
+
+        $this->comment = $posted_comment;
+
+        if(100 < mb_strlen($posted_comment)){
+            $this->setErrors(commentError,'100文字以内で入力してください。');
+            return;
+        }  
+    } 
 
     private function isFileUploaded(){
         if(isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== ""){
