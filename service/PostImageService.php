@@ -36,11 +36,6 @@ class PostImageService extends ImageServiceParent {
     private function execute($_uploadedData) {
 
         $this->pdo->beginTransaction();
-
-        /*
-        $sql = "INSERT INTO media(title, posted_at, updated_at, extension, raw_data) VALUES 
-        (:title, :posted_at, :updated_at, :extension, :raw_data);";
-         */
         
         $sql = "INSERT INTO media(title, comment, posted_at, updated_at, extension, raw_data) VALUES 
         (:title, :comment, :posted_at, :updated_at, :extension, :raw_data);";
@@ -48,7 +43,6 @@ class PostImageService extends ImageServiceParent {
         $stmt = $this->pdo->prepare($sql);
         $stmt -> bindValue(":title", $_uploadedData->title, PDO::PARAM_STR);
         
-        //add
         $stmt -> bindValue(":comment", $_uploadedData->comment, PDO::PARAM_STR);
         
         $stmt -> bindValue(":posted_at", date("Y/m/d H:i:s"));
