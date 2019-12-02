@@ -12,7 +12,7 @@ form.edit-form .d-flex {
   align-items: center;
 }
 form.edit-form .item-data {
-  margin-top: 1rem;
+  margin: 1rem auto 0;
 }
 form.edit-form .description {
   margin-top: 0.5rem;

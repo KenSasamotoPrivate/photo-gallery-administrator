@@ -90,7 +90,7 @@ a.site-link {
   margin-left:0.8rem;
   max-width: 220px;
 }
-ul.item-data li {
+#main ul.item-data li {
   margin-bottom: 0.3rem;
   white-space: nowrap;
   overflow: hidden;
@@ -157,8 +157,9 @@ ul li.status-link {
   }
   .img-wrap {
     text-align: center;
+    max-width: unset;
   }
-  ul.item-data {
+  #main ul.item-data {
     width: 220px;
     margin: 0 auto;
     overflow-x: scroll;
