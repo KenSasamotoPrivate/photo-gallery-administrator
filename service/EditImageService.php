@@ -25,7 +25,7 @@ class EditImageService extends ImageServiceParent {
         } 
         
         if($_uploadedData->hasErrors()){
-            $_uploadedData->setValues(titleValue, $_uploadedData->title);
+            $_uploadedData->setValues('titleValue', $_uploadedData->title);
         } else {
             $this->editExecute($_uploadedData);
         }

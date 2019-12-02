@@ -42,7 +42,7 @@ class UploadedData {
         if($_FILES['upfile']['error'] === UPLOAD_ERR_OK){            
             return false;
         }
-        $this->setErrors(fileError,'ファイルをアップロード出来ません');
+        $this->setErrors('fileError','ファイルをアップロード出来ません');
         return true;
     }
 
@@ -50,7 +50,7 @@ class UploadedData {
         if( $_SERVER["CONTENT_LENGTH"] < post_max_size  )
         return false;          
         
-        $this->setErrors(fileError,'ファイルサイズが大きすぎます。');
+        $this->setErrors('fileError','ファイルサイズが大きすぎます。');
         return true;
         
     }
@@ -66,14 +66,14 @@ class UploadedData {
         $posted_title = str_replace(array(" ","　"),"",$_POST['title']);
 
         if(!isset($posted_title) || $posted_title == ''){
-            $this->setErrors(titleError,'タイトルを入力してください。'); 
+            $this->setErrors('titleError','タイトルを入力してください。'); 
             return;
         } 
 
         $this->title = $posted_title;
 
         if(40 < mb_strlen($_POST['title'])){
-            $this->setErrors(titleError,'40文字以内で入力してください。');
+            $this->setErrors('titleError','40文字以内で入力してください。');
         }
     }
 
@@ -87,7 +87,7 @@ class UploadedData {
         $this->comment = $posted_comment;
 
         if(100 < mb_strlen($posted_comment)){
-            $this->setErrors(commentError,'100文字以内で入力してください。');
+            $this->setErrors('commentError','100文字以内で入力してください。');
             return;
         }  
     } 
@@ -98,7 +98,7 @@ class UploadedData {
         } 
         if($_POST['mode'] === 'edit')
         return;
-        $this->setErrors(fileError,'ファイルが選択されていません。'); 
+        $this->setErrors('fileError','ファイルが選択されていません。'); 
         return false;
     }
 
@@ -107,7 +107,7 @@ class UploadedData {
             $this->extension = $_FILES["upfile"]["type"];
             return;
         } 
-        $this->setErrors(fileError,'非対応ファイルです');
+        $this->setErrors('fileError','非対応ファイルです');
     }
 }
 ?>

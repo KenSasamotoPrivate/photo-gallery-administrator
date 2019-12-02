@@ -41,7 +41,7 @@ class LoginService {
         return;
     } 
 
-    $this->setValues(email, $_POST['email']);
+    // $this->setValues(email, $_POST['email']);
 
     if($this->hasErrors()){
       return;
@@ -70,12 +70,15 @@ class LoginService {
   }
 
   private function _validate() {
+
     if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
       echo "Invalid Token!";
       exit;
     }
 
     if (!isset($_POST['email']) || !isset($_POST['password'])) {
+      var_dump($_POST['email']);
+      var_dump($_POST['password']);      
       echo "Invalid Form!";
       exit;
     }

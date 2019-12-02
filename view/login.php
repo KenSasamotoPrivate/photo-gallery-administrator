@@ -11,7 +11,8 @@
   <div id="container">
     <form action="" method="post" id="login">
       <p>
-        <input type="text" name="email" placeholder="email" value="<?php isset($loginService->getValues(email)->email) ? print h($loginService->getValues(email)->email) : print '' ?>">
+        <!-- <input type="text" name="email" placeholder="email" value="<?php isset($loginService->getValues(email)->email) ? print h($loginService->getValues(email)->email) : print '' ?>"> -->
+        <input type="text" name="email" placeholder="email">
       </p>
       <p>
         <input type="password" name="password" placeholder="password">

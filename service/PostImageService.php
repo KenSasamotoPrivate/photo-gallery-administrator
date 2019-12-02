@@ -25,8 +25,8 @@ class PostImageService extends ImageServiceParent {
         } 
 
         if($_uploadedData->hasErrors()){
-            $_uploadedData->setValues(titleValue, $_uploadedData->title);
-            $_uploadedData->setValues(commentValue, $_uploadedData->comment);
+            $_uploadedData->setValues('titleValue', $_uploadedData->title);
+            $_uploadedData->setValues('commentValue', $_uploadedData->comment);
             return;
         } 
         
