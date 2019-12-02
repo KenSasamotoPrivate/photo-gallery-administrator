@@ -76,6 +76,9 @@ a.site-link {
   margin:0 auto 35px;
   display: flex;
 }
+.img-wrap {
+  max-width: 220px;
+}
 .img-wrap img {
   width: 220px;
   height: 165px;
