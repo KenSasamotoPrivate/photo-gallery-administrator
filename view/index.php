@@ -48,7 +48,7 @@
       <div class="item clearfix" data-id="<?php echo $id ?>">
         <div class="img-wrap">
         <?php 
-          echo "<img src='../service/exportImageService.php?id=$id' alt='' width='220px' height='auto'>";          
+          echo "<img src='../service/exportImageService.php?id=$id' alt='' >";          
           echo "<br/><br/>";
         ?>
         </div>
@@ -57,6 +57,7 @@
           <li>最終更新日</li>
           <li class="date"><?php echo h($record->updated_at);?></li>
           <li><b><?php echo h($record->title);?></b></li>
+          <li><?php echo h($record->comment);?></li>
           <li class="delete-edit-link">
             <!-- delete ajax >> delete.js -->
             <span><a href="EditController.php?id=<?php echo $id ?>">編集</a></span>・<span><a class="deleteLink" href="">削除</a></span>
