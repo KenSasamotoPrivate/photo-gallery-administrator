@@ -1,5 +1,8 @@
 @charset "utf-8";
 /* edit */
+.edit-target .img-wrap{
+  margin-right: 1rem;
+}
 form.edit-form {
   margin-top: 50px;
   width: 500px;
@@ -56,5 +59,8 @@ form.edit-form ul.item-data li {
   }
   .edit-target ul.item-data {
     width:80%;
+  }
+  .edit-target .img-wrap {
+    margin-right: 0;
   }
 }

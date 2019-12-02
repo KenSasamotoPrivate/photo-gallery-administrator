@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../resources/css/style.css">
+  <script src="/resources/js/ofi.min.js"></script>
   <title>管理画面</title>
 </head>
-<body>
+<body id="main">
   <header>
     <p>管理画面</p>
   </header>
@@ -73,5 +74,8 @@
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/status_change.js"></script>
 <script src="/resources/js/delete.js"></script>
+<script>
+  objectFitImages();
+</script>
 </body>
 </html>

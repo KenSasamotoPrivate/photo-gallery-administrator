@@ -80,8 +80,10 @@ a.site-link {
   width: 220px;
   height: 165px;
   object-fit: cover;
+  /*Internet Exproler*/
+  font-family: 'object-fit: cover;';
 }
-ul.item-data {
+#main ul.item-data {
   margin-left:0.8rem;
   max-width: 220px;
 }

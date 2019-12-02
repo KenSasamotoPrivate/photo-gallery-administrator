@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../resources/css/style.css">
   <link rel="stylesheet" href="../resources/css/edit.css">
+  <script src="../resources/js/ofi.min.js"></script>
   <title>管理画面 | 編集</title>
 </head>
 <body>
@@ -51,5 +52,8 @@
       <input type="hidden" name="mode" value="edit">
     </div>
   </form>
+<script>
+  objectFitImages();
+</script>
 </body>
 </html>
