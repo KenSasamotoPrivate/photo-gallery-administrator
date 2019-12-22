@@ -18,7 +18,7 @@ $titleValue = $PostImageService->$uploadedData->getValues('titleValue');
 $commentValue = $PostImageService->$uploadedData->getValues('commentValue');
 
 $GetImages = new GetImageService();
-$records = $GetImages->findAll();
+$records = $GetImages->findAll(1);
 
 require_once('../view/index.php');
 
