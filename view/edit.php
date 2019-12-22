@@ -17,7 +17,7 @@
         <?php $id = h($image->id); ?>
         <p>現在の画像</p>
         <?php         
-        echo "<img src='../service/exportImageService.php?id=$id' alt='' width='220px' height='auto'>";
+        echo "<img src='../service/exportImageService.php?id=$id' alt=''>";
         echo "<br/><br/>";
         ?>
       </div>
