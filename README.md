@@ -11,7 +11,7 @@ https://hiiragi-ya.net/
 ・投稿内容の編集  
 
 ・ステージング環境URL
-http://admin-staging.uh-oh.jp/login.php  
+http://admin-staging.uh-oh.jp/controller/IndexController.php    
 ※検証環境ですので自由に操作していただいて問題ありません。
 
 ログイン用アカウント  
