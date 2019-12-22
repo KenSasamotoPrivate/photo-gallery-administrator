@@ -139,6 +139,15 @@ ul li.status-link {
   min-height: 21px;
   display: block;
 }
+#pagination-area {
+  width: 300px;
+  margin: 0 auto 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.v-hidden {
+  visibility: hidden;
+}
 @media screen and (max-width:414px) {
   .post-area {
     width: 100%;

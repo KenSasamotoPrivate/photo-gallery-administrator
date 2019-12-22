@@ -71,6 +71,18 @@
       </div>
     <?php endforeach ?>
   </div>
+  <div id="pagination-area">
+    <?php
+      if($totalNumber <= $current * 10){
+        $prev_hidden="v-hidden";
+      } 
+      if($current == 1){
+        $next_hidden="v-hidden";
+      }
+    ?>    
+    <div class="prev-link <?php echo h($prev_hidden);?>"><a href="/controller/IndexController.php?page=<?php echo h($current + 1)?>">前の10件</a></div>
+    <div class="next-link <?php echo h($next_hidden);?>"><a href="/controller/IndexController.php?page=<?php echo h($current - 1)?>">次の10件</a></div>
+  </div>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/status_change.js"></script>
 <script src="/resources/js/delete.js"></script>
