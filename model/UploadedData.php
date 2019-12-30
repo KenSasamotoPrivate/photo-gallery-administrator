@@ -26,16 +26,15 @@ class UploadedData {
         $this->tokenCheck();
 
         $this->setTitle();
-
         $this->setComment();
         
         if ($this->isFileUploaded()){
             if($this->isfileHasError())
-            return;
-            $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);
-            $this->setExtension();              
+            return;                      
+ 
+            $this->setExtension();
+            $this->setRawdata();  
         }
-
     }
 
     private function isfileHasError(){
@@ -100,6 +99,54 @@ class UploadedData {
         return;
         $this->setErrors('fileError','ファイルが選択されていません。'); 
         return false;
+    }
+
+    private function setRawdata(){
+        
+        //Exif reset
+        if($this->extension == 'image/jpeg'){
+            
+            $imgdata = imagecreatefromjpeg($_FILES['upfile']['tmp_name']); 
+            
+            $exif_data = exif_read_data($_FILES['upfile']['tmp_name']);
+
+            $roated = $this->imgRotate($imgdata, $exif_data['Orientation']);                             
+
+            imagejpeg($roated, $_FILES['upfile']['tmp_name'], 100);                                       
+        }
+
+        $this->raw_data = file_get_contents($_FILES['upfile']['tmp_name']);  
+    }
+
+    private function imgRotate($image, $orientation) {                                    
+        switch ($orientation) {
+            case 1: //no rotate
+                break;
+            case 2: //FLIP_HORIZONTAL
+                imageflip($image, IMG_FLIP_HORIZONTAL);
+                break;
+            case 3: //ROTATE 180
+                $image = imagerotate($image, 180, 0);
+                break;
+            case 4: //FLIP_VERTICAL
+                imageflip($image, IMG_FLIP_VERTICAL);
+                break;
+            case 5: //ROTATE 270 FLIP_HORIZONTAL
+                $image = imagerotate($image, 270, 0);
+                imageflip($image, IMG_FLIP_HORIZONTAL);
+                break;
+            case 6: //ROTATE 90
+                $image = imagerotate($image, 270, 0);
+                break;
+            case 7: //ROTATE 90 FLIP_HORIZONTAL
+                $image = imagerotate($image, 90, 0);
+                imageflip($image, IMG_FLIP_HORIZONTAL);
+                break;
+            case 8: //ROTATE 270
+                $image = imagerotate($image, 90, 0);
+                break;
+        }
+        return $image;
     }
 
     private function setExtension() {
