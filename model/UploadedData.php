@@ -16,13 +16,10 @@ class UploadedData {
     } 
 
     public function validate() {
-        /*
-        var_dump($_POST['comment']);
-        exit;
-         */
 
         if($this->isMaxSizeOver())
         return;
+        
         $this->tokenCheck();
 
         $this->setTitle();
