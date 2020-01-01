@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Log In</title>
+  <title>管理画面</title>
   <link rel="stylesheet" href="../resources/css/login.css">
 </head>
 <body>
