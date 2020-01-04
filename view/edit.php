@@ -20,6 +20,12 @@
         echo "<img src='../service/exportImageService.php?id=$id' alt=''>";
         echo "<br/><br/>";
         ?>
+        <p>変更後の画像</p>
+        <div class="p-relative">
+          <img id="preview">
+          <p class="preview-comment"></p>
+        </div>
+        <br/><br/>
       </div>
       <ul class="item-data">
         <?php $image->status === 'public' ? $status="公開中" : $status="非公開" ?>
@@ -52,6 +58,8 @@
       <input type="hidden" name="mode" value="edit">
     </div>
   </form>
+<script src="/resources/js/jquery-3.3.1.min.js"></script>  
+<script src="/resources/js/drag.js"></script>
 <script>
   objectFitImages();
 </script>

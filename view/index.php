@@ -24,10 +24,13 @@
       <div class="input-label-wrap">
         <label class="require" for="file">画像</label>
         <input type="file" name="upfile">
-        <p class="upload-notice">※png, jpeg, gif形式に対応（5MB以下推奨)<span class="<?php $fileError !== '' ? print 'error' : print ''?>"><?php echo h($fileError);?></span></p>
+        <p class="upload-notice">※png, jpeg, gif形式に対応（5MB以下推奨)<span class="<?php $fileError !== '' ? print 'error' : print ''?>"><?php echo h($fileError);?></span></p>        
+          
       </div>
       
-      <div class="input-label-wrap">
+      <div class="input-label-wrap clearfix p-relative">
+        <img id="preview">
+        <p class="preview-comment"></p>
         <label  class="require" for="title">タイトル ※40文字まで</label>
         <input id="title" type="text" name="title" value="<?php echo h($titleValue);?>">
         <span class="error"><?php echo h($titleError);?></span>
@@ -49,7 +52,7 @@
       <div class="item clearfix" data-id="<?php echo $id ?>">
         <div class="img-wrap">
         <?php 
-          echo "<img src='../service/exportImageService.php?id=$id' alt='' >";          
+          echo "<img src='../service/exportImageService.php?id=$id' alt='' >";         
           echo "<br/><br/>";
         ?>
         </div>
@@ -81,11 +84,12 @@
       }
     ?>    
     <div class="prev-link <?php echo h($prev_hidden);?>"><a href="/controller/IndexController.php?page=<?php echo h($current + 1)?>">前の10件</a></div>
-    <div class="next-link <?php echo h($next_hidden);?>"><a href="/controller/IndexController.php?page=<?php echo h($current - 1)?>">次の10件</a></div>
+    <div class="next-link <?php echo h($next_hidden);?>"><a href="/controller/IndexController.php?page=<?php echo h($current - 1)?>">次の10件</a></div>    
   </div>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/status_change.js"></script>
 <script src="/resources/js/delete.js"></script>
+<script src="/resources/js/drag.js"></script>
 <script>
   objectFitImages();
 </script>

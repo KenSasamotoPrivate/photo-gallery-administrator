@@ -4,6 +4,14 @@
   padding:0;
   list-style-type: none;
 }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear:both;
+}
+.p-relative {
+  position:relative;
+}
 .edit-target {
   display: flex;
 }
@@ -148,6 +156,28 @@ ul li.status-link {
 .v-hidden {
   visibility: hidden;
 }
+#preview {
+  width: 220px;
+  height: 165px;
+  margin-bottom: 21px;
+  margin-right: 21px;
+  border:1px dotted;
+  box-sizing: border-box;
+  object-fit: cover;
+  /*Internet Exproler*/
+  font-family: 'object-fit: cover;';
+  float:left;
+  background-color:darkgray;
+}
+.preview-comment {
+  position: absolute;
+  top:0;
+  left:0;
+  font-size:0.8rem;
+}
+p.preview-comment::after {
+  content:'ドラッグ&ドロップで選択出来ます';
+}
 @media screen and (max-width:414px) {
   .post-area {
     width: 100%;
@@ -173,9 +203,13 @@ ul li.status-link {
     margin: 0 auto;
     overflow-x: scroll;
   }
-  .clearfix::after {
-    content: "";
-    display: block;
-    clear:both;
+  #preview {
+    float:none;
+    margin-right: 0px;
+    height:unset;
+    border:0;
+  }
+  p.preview-comment::after {
+    content:'';
   }
 }
