@@ -8,7 +8,7 @@ class GetImageService extends ImageServiceParent  {
     
         $offsetNum = $this->getOffsetNum($current);
     
-        $sql = "SELECT * FROM media WHERE status = 'public' ORDER BY id desc LIMIT 10 OFFSET $offsetNum";
+        $sql = "SELECT * FROM media ORDER BY id desc LIMIT 10 OFFSET $offsetNum";
         $stmt = $this->pdo->prepare($sql);
         $stmt -> execute();
         return $stmt -> fetchAll(PDO::FETCH_OBJ);
@@ -30,7 +30,7 @@ class GetImageService extends ImageServiceParent  {
     }
     
     public function getTotalNumber(){        
-        $sql = "SELECT COUNT(title) FROM media WHERE status = 'public'";
+        $sql = "SELECT COUNT(title) FROM media";
     
         $stmt = $this->pdo->prepare($sql);
         $stmt -> execute();
