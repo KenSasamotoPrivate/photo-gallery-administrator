@@ -12,7 +12,7 @@ $(function(){
         $("#preview").attr('src', e.target.result);
     }    
     
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL(e.target.files[0]);    
     
     $("p.preview-comment").removeClass('preview-comment');
     
@@ -24,16 +24,14 @@ $(function(){
   
   $("#preview").on("drop", function(e){   
       document.querySelector("[name='upfile']").files = 
-      e.originalEvent.dataTransfer.files;
-      
-      e.preventDefault();
+      e.originalEvent.dataTransfer.files;      
       
       var reader = new FileReader();
 
       reader.onload = function (e) {
         $("#preview").attr('src', e.target.result);        
       }
-
+      
       reader.readAsDataURL(e.originalEvent.dataTransfer.files[0]);
 
       $("p.preview-comment").removeClass('preview-comment');
