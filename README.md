@@ -2,6 +2,7 @@
 手芸作家の[ギャラリーサイト](https://hiiragi-ya.net/)の管理者用ページのソースコードです。 
 
 開発言語:PHP7（フレームワーク無し）、HTML5 & CSS3、 JavaScript（jQuery）  
+データベース:MySQL  
 
 管理者ページの機能 
 ・管理者ログイン機能  
